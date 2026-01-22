@@ -1,0 +1,179 @@
+{
+  "welcome": "Chào mừng",
+  "loading": "Đang tải...",
+  "error": "Lỗi",
+  "success": "Thành công",
+  "cancel": "Hủy",
+  "confirm": "Xác nhận",
+  "save": "Lưu",
+  "delete": "Xóa",
+  "edit": "Chỉnh sửa",
+  "add": "Thêm",
+  "search": "Tìm kiếm",
+  "home": "Trang chủ",
+  "settings": "Cài đặt",
+  "language": "Ngôn ngữ",
+  "header": {
+    "menu": {
+      "home": "TRANG CHỦ",
+      "booking": "ĐẶT PHÒNG",
+      "instructions": "CÁCH CHƠI",
+      "pricing": "BẢNG GIÁ",
+      "reviews": "FEEDBACK",
+      "contact": "LIÊN HỆ"
+    },
+    "language": "Ngôn ngữ"
+  },
+  "hero": {
+    "title": "Khám phá văn hoá Việt trong từng bước đi",
+    "button": "ĐẶT PHÒNG NGAY"
+  },
+  "rooms": {
+    "title": "THÔNG TIN ĐẶT PHÒNG",
+    "room1": {
+      "title": "MIỀN ĐẤT VIỆT",
+      "titleEn": "LANDS OF VIETNAM",
+      "desc": "Khám phá văn hoá các tỉnh thành Việt Nam",
+      "descEn": "Discover Vietnamese culture across provinces",
+      "fullContent": "Mô tả: Khám phá văn hoá các tỉnh thành Việt Nam\nSố người chơi: 3 - 4 đội, 2 - 3 người/ đội\nKhi mỗi vùng đất đều mang trong mình một câu chuyện, liệu bạn có đủ bản lĩnh để chinh phục cả bản đồ Việt Nam?\nMột tấm bản đồ đặc biệt đã mở ra hành trình xuyên suốt các tỉnh thành, nơi mỗi bước đi không chỉ là một quyết định chiến thuật mà còn là cơ hội khám phá bản sắc văn hoá đa dạng của đất nước. Mỗi tỉnh thành là một câu chuyện riêng, mỗi lựa chọn đều ảnh hưởng đến cục diện cuộc chơi.\n\nVì sao bạn nên trải nghiệm chủ đề này?\n• Hành trình đầy màu sắc: Mỗi tỉnh thành mang đến một lát cắt văn hoá khác nhau\n• Chiến thuật & đồng đội: Trò chơi đề cao sự phối hợp nhóm\n• Dễ tiếp cận – dễ cuốn hút: Phù hợp với cả người chơi mới",
+      "fullContentEn": "Description: Discover Vietnamese culture across provinces\nPlayers: 3-4 teams, 2-3 people per team\nWhen each land carries its own story, do you have the courage to conquer the entire map of Vietnam?\nA special map has opened a journey across provinces, where each step is not just a tactical decision but an opportunity to discover the diverse cultural identity of the country. Each province is a separate story, each choice affects the game.\n\nWhy should you experience this theme?\n• Colorful journey: Each province brings a different cultural perspective\n• Strategy & teamwork: The game emphasizes group cooperation\n• Easy to access – Easy to enjoy: Suitable for both new and experienced players"
+    },
+    "room2": {
+      "title": "LÀNG VIỆT SỐNG",
+      "titleEn": "LIVING VILLAGES",
+      "desc": "Khám phá văn hoá làng quê Việt Nam kết hợp tín ngưỡng dân gian",
+      "descEn": "Experience rural Vietnam with folk traditions",
+      "fullContent": "Mô tả: Khám phá văn hoá làng quê Việt Nam kết hợp yếu tố tín ngưỡng dân gian\nSố người chơi: 3 - 4 đội, 2 - 3 người/ đội\nGiữa nhịp sống yên bình của làng quê Việt Nam, không chỉ có mái đình, giếng nước hay những con đường đất quen thuộc, mà còn tồn tại những niềm tin cổ xưa được truyền lại qua nhiều thế hệ.\n\nVì sao bạn nên trải nghiệm chủ đề này?\n• Không gian đậm bản sắc: Tái hiện đời sống làng quê cùng những niềm tin dân gian gần gũi\n• Huyền bí vừa đủ: Yếu tố truyền thuyết được lồng ghép tinh tế\n• Chiến thuật & gắn kết: Trò chơi đề cao sự phối hợp đội nhóm",
+      "fullContentEn": "Description: Experience rural Vietnam with folk traditions\nPlayers: 3-4 teams, 2-3 people per team\nIn the peaceful rhythm of Vietnamese villages, there is not only communal houses and wells, but also ancient beliefs passed down through generations.\n\nWhy should you experience this theme?\n• Distinctive space: Recreate village life with folk traditions\n• Perfect mystery: Legends and traditions woven subtly\n• Strategy & connection: Emphasizes teamwork and cooperation"
+    },
+    "room3": {
+      "title": "LÀNG NGHỀ TRUYỀN THỐNG",
+      "titleEn": "TRADITIONAL CRAFTS",
+      "desc": "Trải nghiệm khám phá văn hoá làng nghề truyền thống Việt Nam",
+      "descEn": "Explore traditional crafts villages of Vietnam",
+      "fullContent": "Mô tả: Trải nghiệm khám phá văn hoá làng nghề truyền thống Việt Nam\nSố người chơi: 3 - 4 đội, 2 - 3 người/ đội\nẨn sau những con ngõ nhỏ và nhịp sống yên bình của làng quê Việt là những làng nghề truyền thống đã tồn tại qua nhiều thế hệ. Mỗi nghề không chỉ tạo ra sản phẩm thủ công, mà còn lưu giữ câu chuyện về sự khéo léo, sáng tạo và tinh thần lao động bền bỉ.\n\nVì sao bạn nên trải nghiệm chủ đề này?\n• Khám phá sáng tạo: Tiếp cận các giá trị thủ công truyền thống dưới góc nhìn mới mẻ\n• Vui tươi – dễ tiếp cận: Không khí nhẹ nhàng, phù hợp với nhiều nhóm người chơi\n• Chiến thuật & phối hợp: Trò chơi khuyến khích làm việc nhóm",
+      "fullContentEn": "Description: Explore traditional crafts villages of Vietnam\nPlayers: 3-4 teams, 2-3 people per team\nHidden behind small alleys and the peaceful rhythm of villages are traditional craft villages that have existed for generations. Each craft not only creates handmade products but also preserves stories of skill, creativity, and perseverance.\n\nWhy should you experience this theme?\n• Creative discovery: Approach traditional crafts from a fresh perspective\n• Fun and accessible: Light atmosphere suitable for many groups\n• Strategy & cooperation: Encourages teamwork and collaboration"
+    }
+  },
+  "instructions": {
+    "title": "HƯỚNG DẪN",
+    "subtitle": "CÁCH CHƠI",
+    "step1": {
+      "title": "BƯỚC 1: CHỌN CHỦ ĐỀ BÀN CHƠI",
+      "description": "Mỗi lần chơi, bạn có thể chọn 1 trong 3 chủ đề: Miền Đất Việt, Làng Việt Sống, hoặc Làng Nghề Truyền Thống. Cùng luật chơi nhưng khác bối cảnh và thử thách.",
+      "details": [
+        "Miền Đất Việt: Hành trình khám phá các vùng đất và tỉnh thành nổi bật",
+        "Làng Việt Sống: Trải nghiệm làng quê Việt xưa với tín ngưỡng dân gian",
+        "Làng Nghề: Khám phá các làng nghề truyền thống Việt Nam"
+      ]
+    },
+    "step2": {
+      "title": "BƯỚC 2: LẬP ĐỘI & NGHE HƯỚNG DẪN",
+      "description": "Người chơi được chia thành các đội, mỗi đội 2-3 người. Quản trò sẽ trực tiếp hướng dẫn chi tiết luật chơi, cách sử dụng tiền trong game.",
+      "details": [
+        "Chia thành các đội cạnh tranh nhau",
+        "Mỗi đội gồm 2-3 người, có 3-4 đội cùng lúc",
+        "Quản trò hướng dẫn luật chơi tổng quát"
+      ]
+    },
+    "step3": {
+      "title": "BƯỚC 3: CHINH PHỤC MỤC TIÊU",
+      "description": "Các đội phối hợp giải quyết thử thách để thu thập tiền, từ đó mua, sở hữu và phát triển tài sản. Đội đạt được số tiền cao nhất sẽ trở thành nhà tỷ phú.",
+      "details": [
+        "Hoàn thành thử thách để thu thập tiền",
+        "Mua và phát triển tài sản trên bàn cờ",
+        "Đội có số tiền cao nhất thắng cuộc"
+      ]
+    }
+  },
+  "pricing": {
+    "title": "BẢNG GIÁ",
+    "room1": {
+      "name": "MIỀN ĐẤT VIỆT",
+      "subtitle": "Khám Phá Văn Hoá Các Tỉnh Thành",
+      "timings": ["60 phút", "120 phút"],
+      "regular": [159, 259],
+      "student": [129, 199],
+      "schedule": "Thứ 2 - Trước 17:00 Thứ 6\nSau 17:00 Thứ 6, Thứ 7, Chủ nhật"
+    },
+    "room2": {
+      "name": "LÀNG VIỆT SỐNG",
+      "subtitle": "Làng Quê Với Tín Ngưỡng Dân Gian",
+      "timings": ["60 phút", "120 phút"],
+      "regular": [139, 239],
+      "student": [99, 179],
+      "schedule": "Thứ 2 - Trước 17:00 Thứ 6\nSau 17:00 Thứ 6, Thứ 7, Chủ nhật"
+    },
+    "room3": {
+      "name": "LÀNG NGHỀ TRUYỀN THỐNG",
+      "subtitle": "Khám Phá Các Làng Nghề Việt Nam",
+      "timings": ["60 phút", "120 phút"],
+      "regular": [149, 249],
+      "student": [119, 189],
+      "schedule": "Thứ 2 - Trước 17:00 Thứ 6\nSau 17:00 Thứ 6, Thứ 7, Chủ nhật"
+    },
+    "regular": "Thường",
+    "student": "Học sinh",
+    "scheduleLabel": "Lịch áp dụng:",
+    "note": "* Giá có thể thay đổi vào các dịp lễ và sự kiện đặc biệt"
+  },
+  "reviews": {
+    "title": "FEEDBACK KHÁCH HÀNG",
+    "view_more": "XEM TẤT CẢ",
+    "items": [
+      {
+        "name": "Thảo Vy",
+        "rating": 5,
+        "text": "Sau khi chơi màn Miền Đất Việt, mình được tiếp xúc với đa dạng văn hoá ở mỗi thành phố, vùng miền. Không phải học văn hoá theo kiểu lý thuyết, mà cảm nhận được bằng trải nghiệm chơi cùng cả nhóm."
+      },
+      {
+        "name": "Quốc Vinh",
+        "rating": 5,
+        "text": "Nhân viên thân thiện, dễ thương và rất nhiệt tình hướng dẫn người chơi, nhất là chịu khó chỉ dẫn những người lần đầu không biết chơi như mình. Mô hình trải nghiệm lạ, rất hay, sẽ quay lại chinh phục trong lần tới."
+      },
+      {
+        "name": "Thanh Hương",
+        "rating": 5,
+        "text": "Mình rất thích chơi Cờ Tỷ Phú với bạn bè, nay lần đầu tiên mình được trải nghiệm trong không gian lớn như thế này, mình rất phấn khích, và ngạc nhiên hơn nữa là được khám phá các văn hoá của Việt Nam. Must try!"
+      }
+    ]
+  },
+  "contact": {
+    "title": "THÔNG TIN LIÊN HỆ",
+    "email": "Email: dauchanviet.official@gmail.com",
+    "fanpage": "Facebook: Dấu Chân Việt - Monopoly Experience Hub",
+    "address1": "Địa chỉ: Phường Hải Châu, Thành Phố Đà Nẵng",
+    "address2": "Hoạt động từ Thứ 2 - Chủ nhật, khung giờ 09:00 - 22:00",
+    "hotline": "HOTLINE: 0905316737",
+    "whatsapp": "Whatsapp: 0905316737",
+    "zalo": "ZALO: 0905316737"
+  },
+  "modal": {
+    "title": "ĐẶT PHÒNG NGAY",
+    "description": "Đặt lịch trải nghiệm của bạn ngay hôm nay",
+    "name": "Họ tên",
+    "namePlaceholder": "Nhập họ tên",
+    "phone": "Số điện thoại",
+    "phonePlaceholder": "0xxx xxx xxx",
+    "room": "Chọn phòng chơi",
+    "roomPlaceholder": "-- Chọn phòng --",
+    "date": "Ngày",
+    "time": "Giờ",
+    "players": "Số người chơi",
+    "playersPlaceholder": "-- Chọn số người --",
+    "playersOptions": {
+      "2-4": "2-4 người",
+      "4-6": "4-6 người",
+      "6-8": "6-8 người"
+    },
+    "submit": "Hoàn tất đặt phòng",
+    "submitting": "ĐANG XỬ LÝ...",
+    "success": "Đặt phòng thành công! Chúng tôi sẽ liên hệ với bạn sớm.",
+    "error": "Có lỗi xảy ra. Vui lòng thử lại hoặc liên hệ trực tiếp qua hotline.",
+    "roomOptions": {
+      "lang-viet-song": "Làng Việt Sống",
+      "lang-nghe-truyen-thong": "Làng Nghề Truyền Thống",
+      "mien-dat-viet": "Miền Đất Việt"
+    }
+  }
+}

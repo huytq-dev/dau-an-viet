@@ -1,0 +1,179 @@
+{
+  "welcome": "Welcome",
+  "loading": "Loading...",
+  "error": "Error",
+  "success": "Success",
+  "cancel": "Cancel",
+  "confirm": "Confirm",
+  "save": "Save",
+  "delete": "Delete",
+  "edit": "Edit",
+  "add": "Add",
+  "search": "Search",
+  "home": "Home",
+  "settings": "Settings",
+  "language": "Language",
+  "header": {
+    "menu": {
+      "home": "HOME",
+      "booking": "BOOKING",
+      "instructions": "HOW TO PLAY",
+      "pricing": "PRICING",
+      "reviews": "FEEDBACK",
+      "contact": "CONTACT"
+    },
+    "language": "Language"
+  },
+  "hero": {
+    "title": "Discover Vietnamese culture in every step",
+    "button": "BOOK NOW"
+  },
+  "rooms": {
+    "title": "BOOKING INFORMATION",
+    "room1": {
+      "title": "LANDS OF VIETNAM",
+      "titleEn": "LANDS OF VIETNAM",
+      "desc": "Discover Vietnamese culture across provinces",
+      "descEn": "Discover Vietnamese culture across provinces",
+      "fullContent": "Description: Discover Vietnamese culture across provinces\nPlayers: 3-4 teams, 2-3 people per team\nWhen each land carries its own story, do you have the courage to conquer the entire map of Vietnam?\nA special map has opened a journey across provinces, where each step is not just a tactical decision but an opportunity to discover the diverse cultural identity of the country. Each province is a separate story, each choice affects the game.\n\nWhy should you experience this theme?\n• Colorful journey: Each province brings a different cultural perspective\n• Strategy & teamwork: The game emphasizes group cooperation\n• Easy to access – Easy to enjoy: Suitable for both new and experienced players",
+      "fullContentEn": "Description: Discover Vietnamese culture across provinces\nPlayers: 3-4 teams, 2-3 people per team\nWhen each land carries its own story, do you have the courage to conquer the entire map of Vietnam?\nA special map has opened a journey across provinces, where each step is not just a tactical decision but an opportunity to discover the diverse cultural identity of the country. Each province is a separate story, each choice affects the game.\n\nWhy should you experience this theme?\n• Colorful journey: Each province brings a different cultural perspective\n• Strategy & teamwork: The game emphasizes group cooperation\n• Easy to access – Easy to enjoy: Suitable for both new and experienced players"
+    },
+    "room2": {
+      "title": "LIVING VILLAGES",
+      "titleEn": "LIVING VILLAGES",
+      "desc": "Experience rural Vietnam with folk traditions",
+      "descEn": "Experience rural Vietnam with folk traditions",
+      "fullContent": "Description: Experience rural Vietnam with folk traditions\nPlayers: 3-4 teams, 2-3 people per team\nIn the peaceful rhythm of Vietnamese villages, there is not only communal houses and wells, but also ancient beliefs passed down through generations.\n\nWhy should you experience this theme?\n• Distinctive space: Recreate village life with folk traditions\n• Perfect mystery: Legends and traditions woven subtly\n• Strategy & connection: Emphasizes teamwork and cooperation",
+      "fullContentEn": "Description: Experience rural Vietnam with folk traditions\nPlayers: 3-4 teams, 2-3 people per team\nIn the peaceful rhythm of Vietnamese villages, there is not only communal houses and wells, but also ancient beliefs passed down through generations.\n\nWhy should you experience this theme?\n• Distinctive space: Recreate village life with folk traditions\n• Perfect mystery: Legends and traditions woven subtly\n• Strategy & connection: Emphasizes teamwork and cooperation"
+    },
+    "room3": {
+      "title": "TRADITIONAL CRAFTS",
+      "titleEn": "TRADITIONAL CRAFTS",
+      "desc": "Explore traditional crafts villages of Vietnam",
+      "descEn": "Explore traditional crafts villages of Vietnam",
+      "fullContent": "Description: Explore traditional crafts villages of Vietnam\nPlayers: 3-4 teams, 2-3 people per team\nHidden behind small alleys and the peaceful rhythm of villages are traditional craft villages that have existed for generations. Each craft not only creates handmade products but also preserves stories of skill, creativity, and perseverance.\n\nWhy should you experience this theme?\n• Creative discovery: Approach traditional crafts from a fresh perspective\n• Fun and accessible: Light atmosphere suitable for many groups\n• Strategy & cooperation: Encourages teamwork and collaboration",
+      "fullContentEn": "Description: Explore traditional crafts villages of Vietnam\nPlayers: 3-4 teams, 2-3 people per team\nHidden behind small alleys and the peaceful rhythm of villages are traditional craft villages that have existed for generations. Each craft not only creates handmade products but also preserves stories of skill, creativity, and perseverance.\n\nWhy should you experience this theme?\n• Creative discovery: Approach traditional crafts from a fresh perspective\n• Fun and accessible: Light atmosphere suitable for many groups\n• Strategy & cooperation: Encourages teamwork and collaboration"
+    }
+  },
+  "instructions": {
+    "title": "HOW TO",
+    "subtitle": "PLAY",
+    "step1": {
+      "title": "STEP 1: CHOOSE A THEME",
+      "description": "Each time you play, choose one of 3 themes: Lands of Vietnam, Living Villages, or Traditional Crafts. Same rules but different settings and challenges.",
+      "details": [
+        "Lands of Vietnam: Explore provinces and cultural regions",
+        "Living Villages: Experience rural Vietnam with folk traditions",
+        "Traditional Crafts: Discover traditional craft villages"
+      ]
+    },
+    "step2": {
+      "title": "STEP 2: FORM YOUR TEAM & LEARN RULES",
+      "description": "Players are divided into teams of 2-3 people. Our staff will guide you through the game rules, money system, and gameplay mechanics.",
+      "details": [
+        "Form competitive teams",
+        "Each team has 2-3 people, 3-4 teams play together",
+        "Staff explains the complete rules"
+      ]
+    },
+    "step3": {
+      "title": "STEP 3: CONQUER THE OBJECTIVES",
+      "description": "Teams work together to solve challenges and earn money. Use money to buy and develop assets. The team with the most money wins!",
+      "details": [
+        "Solve challenges to earn money",
+        "Buy and develop assets on the board",
+        "Highest money team wins"
+      ]
+    }
+  },
+  "pricing": {
+    "title": "PRICING",
+    "room1": {
+      "name": "LANDS OF VIETNAM",
+      "subtitle": "Discover Provincial Cultures",
+      "timings": ["60 minutes", "120 minutes"],
+      "regular": [159, 259],
+      "student": [129, 199],
+      "schedule": "Mon - Before 17:00 Fri\nFrom 17:00 Fri, Sat, Sun"
+    },
+    "room2": {
+      "name": "LIVING VILLAGES",
+      "subtitle": "Rural Vietnam & Folk Traditions",
+      "timings": ["60 minutes", "120 minutes"],
+      "regular": [139, 239],
+      "student": [99, 179],
+      "schedule": "Mon - Before 17:00 Fri\nFrom 17:00 Fri, Sat, Sun"
+    },
+    "room3": {
+      "name": "TRADITIONAL CRAFTS",
+      "subtitle": "Explore Vietnamese Craft Villages",
+      "timings": ["60 minutes", "120 minutes"],
+      "regular": [149, 249],
+      "student": [119, 189],
+      "schedule": "Mon - Before 17:00 Fri\nFrom 17:00 Fri, Sat, Sun"
+    },
+    "regular": "Regular",
+    "student": "Student",
+    "scheduleLabel": "Schedule:",
+    "note": "* Prices may vary during holidays and special events"
+  },
+  "reviews": {
+    "title": "CUSTOMER FEEDBACK",
+    "view_more": "VIEW ALL",
+    "items": [
+      {
+        "name": "Thao Vy",
+        "rating": 5,
+        "text": "After playing Lands of Vietnam, I experienced diverse cultures from different cities and regions. It's not just theoretical learning, but true experiential discovery with friends."
+      },
+      {
+        "name": "Quoc Vinh",
+        "rating": 5,
+        "text": "Friendly and enthusiastic staff. They patiently guided even first-time players like me. The game experience is unique and interesting. I'll definitely come back for more themes!"
+      },
+      {
+        "name": "Thanh Huong",
+        "rating": 5,
+        "text": "First time experiencing such a large-scale game space. Very exciting and got to explore Vietnamese cultures. The whole experience was amazing. Must try!"
+      }
+    ]
+  },
+  "contact": {
+    "title": "CONTACT INFORMATION",
+    "email": "Email: dauchanviet.official@gmail.com",
+    "fanpage": "Fanpage: Dấu Chân Việt - Monopoly Experience Hub",
+    "address1": "Address: Hai Chau Ward, Da Nang City",
+    "address2": "Open Monday - Sunday, 09:00 - 22:00",
+    "hotline": "HOTLINE: 0905316737",
+    "whatsapp": "Whatsapp: 0905316737",
+    "zalo": "ZALO: 0905316737"
+  },
+  "modal": {
+    "title": "BOOK NOW",
+    "description": "Schedule your experience today",
+    "name": "Full Name",
+    "namePlaceholder": "Enter your name",
+    "phone": "Phone Number",
+    "phonePlaceholder": "0xxx xxx xxx",
+    "room": "Select Room",
+    "roomPlaceholder": "-- Select Room --",
+    "date": "Date",
+    "time": "Time",
+    "players": "Number of Players",
+    "playersPlaceholder": "-- Select number --",
+    "playersOptions": {
+      "2-4": "2-4 people",
+      "4-6": "4-6 people",
+      "6-8": "6-8 people"
+    },
+    "submit": "Complete Booking",
+    "submitting": "PROCESSING...",
+    "success": "Booking successful! We will contact you soon.",
+    "error": "An error occurred. Please try again or contact us directly via hotline.",
+    "roomOptions": {
+      "lang-viet-song": "Living Villages",
+      "lang-nghe-truyen-thong": "Traditional Crafts",
+      "mien-dat-viet": "Lands of Vietnam"
+    }
+  }
+}
