@@ -25,7 +25,8 @@
     "language": "Ngôn ngữ"
   },
   "hero": {
-    "title": "Khám phá văn hoá Việt trong từng bước đi",
+    "heading": "Khám phá văn hoá Việt trong từng bước đi",
+    "title": "Trải nghiệm văn hóa theo cách riêng của bạn.",
     "button": "ĐẶT PHÒNG NGAY"
   },
   "rooms": {
@@ -120,6 +121,7 @@
   "reviews": {
     "title": "FEEDBACK KHÁCH HÀNG",
     "view_more": "XEM TẤT CẢ",
+    "subtitle": "KHÁCH HÀNG NÓI GÌ",
     "items": [
       {
         "name": "Thảo Vy",
@@ -135,18 +137,63 @@
         "name": "Thanh Hương",
         "rating": 5,
         "text": "Mình rất thích chơi Cờ Tỷ Phú với bạn bè, nay lần đầu tiên mình được trải nghiệm trong không gian lớn như thế này, mình rất phấn khích, và ngạc nhiên hơn nữa là được khám phá các văn hoá của Việt Nam. Must try!"
+      },
+      {
+        "name": "Minh Đức",
+        "rating": 5,
+        "text": "Trải nghiệm tuyệt vời! Không chỉ là một trò chơi mà còn là cơ hội học hỏi về văn hóa Việt Nam một cách thú vị. Đội ngũ nhân viên rất chuyên nghiệp và nhiệt tình."
+      },
+      {
+        "name": "Lan Anh",
+        "rating": 5,
+        "text": "Chủ đề Làng Việt Sống thật sự ấn tượng. Mình cảm thấy như được quay về quá khứ, khám phá những nét đẹp văn hóa truyền thống. Sẽ giới thiệu cho bạn bè!"
+      },
+      {
+        "name": "Hoàng Nam",
+        "rating": 5,
+        "text": "Lần đầu chơi Monopoly ở quy mô lớn như vậy. Không gian đẹp, không khí vui vẻ, và quan trọng là học được nhiều điều về các làng nghề truyền thống Việt Nam."
+      },
+      {
+        "name": "Hương Giang",
+        "rating": 5,
+        "text": "Rất thích cách tổ chức và thiết kế trò chơi. Mỗi chủ đề đều có điểm đặc biệt riêng. Đã chơi cả 3 chủ đề và đều thấy hay. Giá cả hợp lý cho một trải nghiệm như vậy."
+      },
+      {
+        "name": "Tuấn Anh",
+        "rating": 5,
+        "text": "Điểm cộng lớn nhất là nhân viên rất nhiệt tình và kiên nhẫn hướng dẫn. Ngay cả khi không biết chơi cũng được hỗ trợ tận tình. Trải nghiệm đáng nhớ!"
+      },
+      {
+        "name": "Ngọc Mai",
+        "rating": 5,
+        "text": "Không gian rất đẹp và được thiết kế tỉ mỉ. Cảm giác như đang tham gia một chương trình truyền hình thực tế về văn hóa Việt Nam. Rất recommend!"
+      },
+      {
+        "name": "Đức Thành",
+        "rating": 5,
+        "text": "Chơi cùng nhóm bạn rất vui. Trò chơi khuyến khích làm việc nhóm và tư duy chiến lược. Đã đặt lịch quay lại để chơi các chủ đề còn lại!"
       }
     ]
   },
   "contact": {
     "title": "THÔNG TIN LIÊN HỆ",
+    "subtitle": "KẾT NỐI VỚI CHÚNG TÔI",
     "email": "Email: dauchanviet.official@gmail.com",
     "fanpage": "Facebook: Dấu Chân Việt - Monopoly Experience Hub",
     "address1": "Địa chỉ: Phường Hải Châu, Thành Phố Đà Nẵng",
     "address2": "Hoạt động từ Thứ 2 - Chủ nhật, khung giờ 09:00 - 22:00",
     "hotline": "HOTLINE: 0905316737",
     "whatsapp": "Whatsapp: 0905316737",
-    "zalo": "ZALO: 0905316737"
+    "zalo": "ZALO: 0905316737",
+    "info": "Thông tin",
+    "address": "Địa chỉ",
+    "facility2": "Cơ sở 2",
+    "hotlineZalo": "Hotline / Zalo",
+    "workingHours": "Giờ mở cửa",
+    "workingHoursValue": "09:00 - 22:30 (Hằng ngày)",
+    "emailLabel": "Email",
+    "facebook": "Facebook",
+    "zaloChat": "Zalo Chat"
   },
   "modal": {
     "title": "ĐẶT PHÒNG NGAY",
@@ -174,6 +221,14 @@
       "lang-viet-song": "Làng Việt Sống",
       "lang-nghe-truyen-thong": "Làng Nghề Truyền Thống",
       "mien-dat-viet": "Miền Đất Việt"
+    },
+    "validation": {
+      "name": "Bắt buộc",
+      "phone": "SĐT không hợp lệ",
+      "date": "Bắt buộc",
+      "time": "Bắt buộc",
+      "room": "Bắt buộc",
+      "players": "Bắt buộc"
     }
   }
 }

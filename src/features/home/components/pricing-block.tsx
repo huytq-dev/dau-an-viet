@@ -1,10 +1,10 @@
 "use client"
 
 import { useTranslation } from "react-i18next"
+import { Clock, GraduationCap, Users } from "lucide-react"
 
 export default function PricingBlock() {
   const { t, i18n } = useTranslation()
-  const currentLanguage = i18n.resolvedLanguage ?? i18n.language
 
   const pricingRooms = [
     {
@@ -37,29 +37,32 @@ export default function PricingBlock() {
   ]
 
   return (
+    // SECTION BACKGROUND: Màu Nâu Cà Phê Đậm (Dark Coffee) - Xen kẽ với màu Be sáng ở trên
     <section
       id="pricing"
-      className="min-h-screen bg-red-900 flex items-center py-24 relative overflow-hidden"
+      className="relative min-h-screen flex items-center py-24 bg-[#1F1612] overflow-hidden"
     >
-      {/* Background Image */}
-      {/* Note: pricing-table.jpg not found - background image removed */}
-      {/* <div 
-        className="absolute inset-0 opacity-20"
-        style={{
-          backgroundImage: 'url(/images/pricing-table.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      /> */}
       
-      <div className="container mx-auto px-4 relative z-10">
-        {/* Title */}
-        <h2 className="text-4xl lg:text-5xl font-bold text-white text-center mb-12">
-          {t('pricing.title')}
-        </h2>
+      {/* Decorative Element: Số nền mờ phía sau */}
+      <div className="absolute top-20 right-0 font-black text-[200px] leading-none text-white/5 select-none pointer-events-none">
+          $
+      </div>
 
-        {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="container mx-auto px-4 relative z-10">
+        
+        {/* Header Section */}
+        <div className="text-center mb-16 space-y-4">
+            <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#B45309] block">
+                {t('pricing.subtitle') || "BẢNG GIÁ DỊCH VỤ"}
+            </span>
+            <h2 className="text-4xl lg:text-5xl font-black text-white uppercase tracking-tight">
+                {t('pricing.title') || "CHỌN GÓI TRẢI NGHIỆM"}
+            </h2>
+             <div className="h-1 w-20 bg-[#B45309] mx-auto mt-6" />
+        </div>
+
+        {/* Pricing Cards Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           {pricingRooms.map((room) => {
             const timings = t(room.timingsKey, { returnObjects: true }) as string[]
             const regular = t(room.regularKey, { returnObjects: true }) as number[]
@@ -68,64 +71,80 @@ export default function PricingBlock() {
             return (
               <div
                 key={room.id}
-                className="bg-red-800/80 backdrop-blur-sm border-2 border-yellow-400 rounded-2xl p-6 lg:p-8 hover:transform hover:scale-105 transition-all duration-300 shadow-2xl"
+                // CARD STYLE: Nền Nâu Đất (Dark Earth), Viền sáng nhẹ
+                className="group relative bg-[#2A201C] border border-white/5 hover:border-[#B45309]/50 rounded-sm p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]"
               >
+                
                 {/* Card Header */}
-                <div className="text-center mb-6 pb-6 border-b-2 border-yellow-400/30">
-                  <h3 className="text-2xl lg:text-3xl font-bold text-yellow-400 mb-2">
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl font-bold text-[#D4A373] uppercase tracking-wide mb-2 group-hover:text-[#E6C29F] transition-colors">
                     {t(room.nameKey)}
                   </h3>
-                  <p className="text-white/80 text-sm lg:text-base">{t(room.subtitleKey)}</p>
+                  <p className="text-white/40 text-sm font-medium uppercase tracking-widest border-b border-white/5 pb-6">
+                      {t(room.subtitleKey)}
+                  </p>
                 </div>
 
                 {/* Pricing Table */}
-                <div className="space-y-4 mb-6">
-                  {/* Header Row */}
-                  <div className="grid grid-cols-3 gap-2 text-center pb-3 border-b border-yellow-400/30">
-                    <div className="text-yellow-400 font-semibold text-sm"></div>
-                    <div className="text-yellow-400 font-semibold text-sm">{timings[0]}</div>
-                    <div className="text-yellow-400 font-semibold text-sm">{timings[1]}</div>
+                <div className="space-y-6">
+                  
+                  {/* Column Headers */}
+                  <div className="grid grid-cols-3 text-center text-[10px] font-bold uppercase tracking-wider text-white/30 mb-2">
+                    <div className="text-left">Đối tượng</div>
+                    <div>{timings[0]}</div>
+                    <div>{timings[1]}</div>
                   </div>
 
                   {/* Regular Price Row */}
-                  <div className="grid grid-cols-3 gap-2 text-center items-center">
-                    <div className="text-white text-sm font-medium text-left">
-                      {t('pricing.regular')}
+                  <div className="grid grid-cols-3 items-center py-4 border-t border-white/5 hover:bg-white/5 transition-colors px-2 -mx-2 rounded">
+                    <div className="flex items-center gap-2 text-white font-bold text-sm text-left">
+                      <Users className="w-4 h-4 text-[#B45309]" />
+                      <span>{t('pricing.regular') || "Người lớn"}</span>
                     </div>
-                    <div className="text-white text-lg font-bold">{regular[0]}K</div>
-                    <div className="text-white text-lg font-bold">{regular[1]}K</div>
+                    <div className="text-center text-xl font-bold text-white tabular-nums">{regular[0]}K</div>
+                    <div className="text-center text-xl font-bold text-[#D4A373] tabular-nums">{regular[1]}K</div>
                   </div>
 
                   {/* Student Price Row */}
-                  <div className="grid grid-cols-3 gap-2 text-center items-center">
-                    <div className="text-white text-sm font-medium text-left">
-                      {t('pricing.student')}
+                  <div className="grid grid-cols-3 items-center py-4 border-t border-white/5 hover:bg-white/5 transition-colors px-2 -mx-2 rounded">
+                    <div className="flex items-center gap-2 text-white font-bold text-sm text-left">
+                      <GraduationCap className="w-4 h-4 text-[#B45309]" />
+                      <span>{t('pricing.student') || "HSSV"}</span>
                     </div>
-                    <div className="text-white text-lg font-bold">{student[0]}K</div>
-                    <div className="text-white text-lg font-bold">{student[1]}K</div>
+                    <div className="text-center text-xl font-bold text-white tabular-nums">{student[0]}K</div>
+                    <div className="text-center text-xl font-bold text-[#D4A373] tabular-nums">{student[1]}K</div>
                   </div>
                 </div>
 
-                {/* Schedule */}
-                <div className="bg-red-900/50 rounded-lg p-4 mt-6">
-                  <p className="text-yellow-400 font-semibold text-sm mb-2">
-                    {t('pricing.scheduleLabel')}
-                  </p>
-                  <p className="text-white text-xs lg:text-sm whitespace-pre-line leading-relaxed">
-                    {t(room.scheduleKey)}
-                  </p>
+                {/* Schedule Info */}
+                <div className="mt-8 pt-6 border-t border-dashed border-white/10">
+                  <div className="flex items-start gap-3">
+                      <Clock className="w-5 h-5 text-[#B45309]/80 mt-1 flex-shrink-0" />
+                      <div>
+                          <p className="text-[10px] font-bold uppercase text-[#B45309]/80 mb-2 tracking-widest">
+                            {t('pricing.scheduleLabel') || "LỊCH HOẠT ĐỘNG"}
+                          </p>
+                          <p className="text-white/60 text-sm leading-relaxed whitespace-pre-line font-light">
+                            {t(room.scheduleKey)}
+                          </p>
+                      </div>
+                  </div>
                 </div>
+
+                {/* Hover Line Bottom */}
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-[#B45309] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
               </div>
             )
           })}
         </div>
 
-        {/* Note */}
-        <div className="text-center mt-12">
-          <p className="text-white/80 text-sm lg:text-base">
-            {t('pricing.note')}
+        {/* Note Footer */}
+        <div className="text-center mt-16 border-t border-white/5 pt-8 max-w-2xl mx-auto">
+          <p className="text-white/40 text-sm font-light italic">
+            * {t('pricing.note') || "Giá vé áp dụng cho một người chơi. Vui lòng mang thẻ HSSV để nhận ưu đãi."}
           </p>
         </div>
+
       </div>
     </section>
   )

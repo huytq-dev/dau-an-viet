@@ -13,7 +13,7 @@ export default function HomeLayout({
       <HomeHeader />
       
       {/* Main Content - với padding top để tránh bị che bởi fixed header */}
-      <main className="flex-1 pt-20 md:pt-24">
+      <main className="flex-1">
         {children}
       </main>
       

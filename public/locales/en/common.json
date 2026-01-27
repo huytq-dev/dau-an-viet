@@ -25,7 +25,8 @@
     "language": "Language"
   },
   "hero": {
-    "title": "Discover Vietnamese culture in every step",
+    "heading": "Discover Vietnamese culture in every step",
+    "title": "Experience culture your way.",
     "button": "BOOK NOW"
   },
   "rooms": {
@@ -120,6 +121,7 @@
   "reviews": {
     "title": "CUSTOMER FEEDBACK",
     "view_more": "VIEW ALL",
+    "subtitle": "WHAT CUSTOMERS SAY",
     "items": [
       {
         "name": "Thao Vy",
@@ -135,18 +137,63 @@
         "name": "Thanh Huong",
         "rating": 5,
         "text": "First time experiencing such a large-scale game space. Very exciting and got to explore Vietnamese cultures. The whole experience was amazing. Must try!"
+      },
+      {
+        "name": "Minh Duc",
+        "rating": 5,
+        "text": "Amazing experience! Not just a game but a fun way to learn about Vietnamese culture. The staff is very professional and enthusiastic."
+      },
+      {
+        "name": "Lan Anh",
+        "rating": 5,
+        "text": "The Living Villages theme is truly impressive. I felt like traveling back in time, discovering traditional cultural beauty. Will recommend to friends!"
+      },
+      {
+        "name": "Hoang Nam",
+        "rating": 5,
+        "text": "First time playing Monopoly on such a large scale. Beautiful space, fun atmosphere, and importantly learned a lot about traditional Vietnamese craft villages."
+      },
+      {
+        "name": "Huong Giang",
+        "rating": 5,
+        "text": "Love the organization and game design. Each theme has its own special features. Played all 3 themes and found them all great. Reasonable price for such an experience."
+      },
+      {
+        "name": "Tuan Anh",
+        "rating": 5,
+        "text": "The biggest plus is the enthusiastic and patient staff. Even if you don't know how to play, you'll get full support. Memorable experience!"
+      },
+      {
+        "name": "Ngoc Mai",
+        "rating": 5,
+        "text": "The space is very beautiful and meticulously designed. Feels like participating in a reality show about Vietnamese culture. Highly recommend!"
+      },
+      {
+        "name": "Duc Thanh",
+        "rating": 5,
+        "text": "Playing with a group of friends is very fun. The game encourages teamwork and strategic thinking. Already booked to come back for the remaining themes!"
       }
     ]
   },
   "contact": {
     "title": "CONTACT INFORMATION",
+    "subtitle": "CONNECT WITH US",
     "email": "Email: dauchanviet.official@gmail.com",
     "fanpage": "Fanpage: Dấu Chân Việt - Monopoly Experience Hub",
     "address1": "Address: Hai Chau Ward, Da Nang City",
     "address2": "Open Monday - Sunday, 09:00 - 22:00",
     "hotline": "HOTLINE: 0905316737",
     "whatsapp": "Whatsapp: 0905316737",
-    "zalo": "ZALO: 0905316737"
+    "zalo": "ZALO: 0905316737",
+    "info": "Information",
+    "address": "Address",
+    "facility2": "Facility 2",
+    "hotlineZalo": "Hotline / Zalo",
+    "workingHours": "Working Hours",
+    "workingHoursValue": "09:00 - 22:30 (Daily)",
+    "emailLabel": "Email",
+    "facebook": "Facebook",
+    "zaloChat": "Zalo Chat"
   },
   "modal": {
     "title": "BOOK NOW",
@@ -174,6 +221,14 @@
       "lang-viet-song": "Living Villages",
       "lang-nghe-truyen-thong": "Traditional Crafts",
       "mien-dat-viet": "Lands of Vietnam"
+    },
+    "validation": {
+      "name": "Required",
+      "phone": "Invalid phone number",
+      "date": "Required",
+      "time": "Required",
+      "room": "Required",
+      "players": "Required"
     }
   }
 }

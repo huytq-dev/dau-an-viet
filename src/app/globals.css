@@ -129,21 +129,11 @@
   }
   body {
     @apply bg-background text-foreground;
-    scroll-snap-type: y mandatory;
   }
 
-  /* Add scroll-snap container for full-screen sections */
   html {
     scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
-    scroll-duration: 3000ms;
   }
-}
-
-/* Add snap-align for each section to ensure full-screen snapping */
-section {
-  @apply snap-start;
-  scroll-snap-stop: always;
 }
 
 /* Custom animations */
@@ -172,9 +162,7 @@ section {
     @apply group-hover:border-accent;
   }
 
-  /* Slow down scroll snap behavior */
   html {
     scroll-behavior: smooth;
-    scroll-timeline-axis: block;
   }
 }
