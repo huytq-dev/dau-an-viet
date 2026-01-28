@@ -2,9 +2,11 @@
 
 import { useTranslation } from "react-i18next"
 import { Clock, GraduationCap, Users } from "lucide-react"
+import { AnimatedText } from "@/components/ui/animated-text"
 
 export default function PricingBlock() {
   const { t, i18n } = useTranslation()
+  const currentLanguage = i18n.resolvedLanguage ?? i18n.language
 
   const pricingRooms = [
     {
@@ -53,10 +55,20 @@ export default function PricingBlock() {
         {/* Header Section */}
         <div className="text-center mb-16 space-y-4">
             <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#B45309] block">
-                {t('pricing.subtitle') || "BẢNG GIÁ DỊCH VỤ"}
+                <AnimatedText
+                  animationType="fade"
+                  dependencyKey={`${currentLanguage}-pricing-subtitle`}
+                >
+                  {t('pricing.subtitle') || "BẢNG GIÁ DỊCH VỤ"}
+                </AnimatedText>
             </span>
             <h2 className="text-4xl lg:text-5xl font-black text-white uppercase tracking-tight">
-                {t('pricing.title') || "CHỌN GÓI TRẢI NGHIỆM"}
+                <AnimatedText
+                  animationType="slideUp"
+                  dependencyKey={`${currentLanguage}-pricing-title`}
+                >
+                  {t('pricing.title') || "CHỌN GÓI TRẢI NGHIỆM"}
+                </AnimatedText>
             </h2>
              <div className="h-1 w-20 bg-[#B45309] mx-auto mt-6" />
         </div>
@@ -78,10 +90,20 @@ export default function PricingBlock() {
                 {/* Card Header */}
                 <div className="text-center mb-8">
                   <h3 className="text-2xl font-bold text-[#D4A373] uppercase tracking-wide mb-2 group-hover:text-[#E6C29F] transition-colors">
-                    {t(room.nameKey)}
+                    <AnimatedText
+                      animationType="fade"
+                      dependencyKey={`${currentLanguage}-pricing-room-name-${room.id}`}
+                    >
+                      {t(room.nameKey)}
+                    </AnimatedText>
                   </h3>
                   <p className="text-white/40 text-sm font-medium uppercase tracking-widest border-b border-white/5 pb-6">
-                      {t(room.subtitleKey)}
+                      <AnimatedText
+                        animationType="fade"
+                        dependencyKey={`${currentLanguage}-pricing-room-subtitle-${room.id}`}
+                      >
+                        {t(room.subtitleKey)}
+                      </AnimatedText>
                   </p>
                 </div>
 
@@ -99,7 +121,14 @@ export default function PricingBlock() {
                   <div className="grid grid-cols-3 items-center py-4 border-t border-white/5 hover:bg-white/5 transition-colors px-2 -mx-2 rounded">
                     <div className="flex items-center gap-2 text-white font-bold text-sm text-left">
                       <Users className="w-4 h-4 text-[#B45309]" />
-                      <span>{t('pricing.regular') || "Người lớn"}</span>
+                      <span>
+                        <AnimatedText
+                          animationType="fade"
+                          dependencyKey={`${currentLanguage}-pricing-regular`}
+                        >
+                          {t('pricing.regular') || "Người lớn"}
+                        </AnimatedText>
+                      </span>
                     </div>
                     <div className="text-center text-xl font-bold text-white tabular-nums">{regular[0]}K</div>
                     <div className="text-center text-xl font-bold text-[#D4A373] tabular-nums">{regular[1]}K</div>
@@ -109,7 +138,14 @@ export default function PricingBlock() {
                   <div className="grid grid-cols-3 items-center py-4 border-t border-white/5 hover:bg-white/5 transition-colors px-2 -mx-2 rounded">
                     <div className="flex items-center gap-2 text-white font-bold text-sm text-left">
                       <GraduationCap className="w-4 h-4 text-[#B45309]" />
-                      <span>{t('pricing.student') || "HSSV"}</span>
+                      <span>
+                        <AnimatedText
+                          animationType="fade"
+                          dependencyKey={`${currentLanguage}-pricing-student`}
+                        >
+                          {t('pricing.student') || "HSSV"}
+                        </AnimatedText>
+                      </span>
                     </div>
                     <div className="text-center text-xl font-bold text-white tabular-nums">{student[0]}K</div>
                     <div className="text-center text-xl font-bold text-[#D4A373] tabular-nums">{student[1]}K</div>
@@ -122,10 +158,20 @@ export default function PricingBlock() {
                       <Clock className="w-5 h-5 text-[#B45309]/80 mt-1 flex-shrink-0" />
                       <div>
                           <p className="text-[10px] font-bold uppercase text-[#B45309]/80 mb-2 tracking-widest">
-                            {t('pricing.scheduleLabel') || "LỊCH HOẠT ĐỘNG"}
+                            <AnimatedText
+                              animationType="fade"
+                              dependencyKey={`${currentLanguage}-pricing-schedule-label-${room.id}`}
+                            >
+                              {t('pricing.scheduleLabel') || "LỊCH HOẠT ĐỘNG"}
+                            </AnimatedText>
                           </p>
                           <p className="text-white/60 text-sm leading-relaxed whitespace-pre-line font-light">
-                            {t(room.scheduleKey)}
+                            <AnimatedText
+                              animationType="fade"
+                              dependencyKey={`${currentLanguage}-pricing-schedule-${room.id}`}
+                            >
+                              {t(room.scheduleKey)}
+                            </AnimatedText>
                           </p>
                       </div>
                   </div>
@@ -141,7 +187,12 @@ export default function PricingBlock() {
         {/* Note Footer */}
         <div className="text-center mt-16 border-t border-white/5 pt-8 max-w-2xl mx-auto">
           <p className="text-white/40 text-sm font-light italic">
-            * {t('pricing.note') || "Giá vé áp dụng cho một người chơi. Vui lòng mang thẻ HSSV để nhận ưu đãi."}
+            <AnimatedText
+              animationType="fade"
+              dependencyKey={`${currentLanguage}-pricing-note`}
+            >
+              * {t('pricing.note') || "Giá vé áp dụng cho một người chơi. Vui lòng mang thẻ HSSV để nhận ưu đãi."}
+            </AnimatedText>
           </p>
         </div>
 

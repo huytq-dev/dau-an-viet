@@ -2,9 +2,11 @@
 
 import { useTranslation } from "react-i18next"
 import { MapPin, Phone, Mail, Clock, Facebook, MessageCircle } from "lucide-react"
+import { AnimatedText } from "@/components/ui/animated-text"
 
 export default function ContactBlock() {
-  const { t } = useTranslation('common')
+  const { t, i18n } = useTranslation('common')
+  const currentLanguage = i18n.resolvedLanguage ?? i18n.language
 
   return (
     // SECTION BACKGROUND: Màu Đỏ đen tối (Matte Dark Red) - Kết thúc trang web
@@ -20,10 +22,20 @@ export default function ContactBlock() {
         {/* Header Section */}
         <div className="text-center mb-16 space-y-4">
           <span className="text-xs font-bold tracking-[0.3em] uppercase text-yellow-600 block">
-            {t('contact.subtitle')}
+            <AnimatedText
+              animationType="fade"
+              dependencyKey={`${currentLanguage}-contact-subtitle`}
+            >
+              {t('contact.subtitle')}
+            </AnimatedText>
           </span>
           <h2 className="text-4xl lg:text-5xl font-black text-white uppercase tracking-tight">
-            {t("contact.title")}
+            <AnimatedText
+              animationType="slideUp"
+              dependencyKey={`${currentLanguage}-contact-title`}
+            >
+              {t("contact.title")}
+            </AnimatedText>
           </h2>
           <div className="h-1 w-20 bg-yellow-600 mx-auto mt-6" />
         </div>
@@ -34,7 +46,12 @@ export default function ContactBlock() {
           <div className="lg:col-span-5 space-y-8 bg-[#1a0505] p-8 lg:p-10 rounded-sm border border-white/5 shadow-2xl">
 
             <h3 className="text-2xl font-bold text-yellow-500 uppercase mb-6 tracking-wide">
-              {t("contact.info")}
+              <AnimatedText
+                animationType="fade"
+                dependencyKey={`${currentLanguage}-contact-info`}
+              >
+                {t("contact.info")}
+              </AnimatedText>
             </h3>
 
             <div className="space-y-6">
@@ -44,9 +61,21 @@ export default function ContactBlock() {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-white/40 uppercase tracking-widest mb-1">{t("contact.address")}</p>
+                  <p className="text-xs font-bold text-white/40 uppercase tracking-widest mb-1">
+                    <AnimatedText
+                      animationType="fade"
+                      dependencyKey={`${currentLanguage}-contact-address-label`}
+                    >
+                      {t("contact.address")}
+                    </AnimatedText>
+                  </p>
                   <p className="text-white/90 text-sm font-medium leading-relaxed">
-                    {t("contact.address1")}
+                    <AnimatedText
+                      animationType="fade"
+                      dependencyKey={`${currentLanguage}-contact-address1`}
+                    >
+                      {t("contact.address1")}
+                    </AnimatedText>
                   </p>
                 </div>
               </div>
@@ -57,9 +86,21 @@ export default function ContactBlock() {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-white/40 uppercase tracking-widest mb-1">{t("contact.facility2")}</p>
+                  <p className="text-xs font-bold text-white/40 uppercase tracking-widest mb-1">
+                    <AnimatedText
+                      animationType="fade"
+                      dependencyKey={`${currentLanguage}-contact-facility2-label`}
+                    >
+                      {t("contact.facility2")}
+                    </AnimatedText>
+                  </p>
                   <p className="text-white/90 text-sm font-medium leading-relaxed">
-                    {t("contact.address2")}
+                    <AnimatedText
+                      animationType="fade"
+                      dependencyKey={`${currentLanguage}-contact-address2`}
+                    >
+                      {t("contact.address2")}
+                    </AnimatedText>
                   </p>
                 </div>
               </div>
@@ -70,12 +111,29 @@ export default function ContactBlock() {
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-white/40 uppercase tracking-widest mb-1">{t("contact.hotlineZalo")}</p>
+                  <p className="text-xs font-bold text-white/40 uppercase tracking-widest mb-1">
+                    <AnimatedText
+                      animationType="fade"
+                      dependencyKey={`${currentLanguage}-contact-hotlinezalo-label`}
+                    >
+                      {t("contact.hotlineZalo")}
+                    </AnimatedText>
+                  </p>
                   <p className="text-white/90 text-sm font-bold tracking-wide">
-                    {t("contact.hotline")}
+                    <AnimatedText
+                      animationType="fade"
+                      dependencyKey={`${currentLanguage}-contact-hotline`}
+                    >
+                      {t("contact.hotline")}
+                    </AnimatedText>
                   </p>
                   <p className="text-white/60 text-xs mt-1">
-                    {t("contact.zalo")}
+                    <AnimatedText
+                      animationType="fade"
+                      dependencyKey={`${currentLanguage}-contact-zalo`}
+                    >
+                      {t("contact.zalo")}
+                    </AnimatedText>
                   </p>
                 </div>
               </div>
@@ -86,9 +144,21 @@ export default function ContactBlock() {
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-white/40 uppercase tracking-widest mb-1">{t("contact.emailLabel")}</p>
+                  <p className="text-xs font-bold text-white/40 uppercase tracking-widest mb-1">
+                    <AnimatedText
+                      animationType="fade"
+                      dependencyKey={`${currentLanguage}-contact-email-label`}
+                    >
+                      {t("contact.emailLabel")}
+                    </AnimatedText>
+                  </p>
                   <p className="text-white/90 text-sm font-medium">
-                    {t("contact.email")}
+                    <AnimatedText
+                      animationType="fade"
+                      dependencyKey={`${currentLanguage}-contact-email`}
+                    >
+                      {t("contact.email")}
+                    </AnimatedText>
                   </p>
                 </div>
               </div>
@@ -99,9 +169,21 @@ export default function ContactBlock() {
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-white/40 uppercase tracking-widest mb-1">{t("contact.workingHours")}</p>
+                  <p className="text-xs font-bold text-white/40 uppercase tracking-widest mb-1">
+                    <AnimatedText
+                      animationType="fade"
+                      dependencyKey={`${currentLanguage}-contact-workinghours-label`}
+                    >
+                      {t("contact.workingHours")}
+                    </AnimatedText>
+                  </p>
                   <p className="text-white/90 text-sm font-medium">
-                    {t("contact.workingHoursValue")}
+                    <AnimatedText
+                      animationType="fade"
+                      dependencyKey={`${currentLanguage}-contact-workinghours`}
+                    >
+                      {t("contact.workingHoursValue")}
+                    </AnimatedText>
                   </p>
                 </div>
               </div>
@@ -111,10 +193,22 @@ export default function ContactBlock() {
             <div className="pt-8 mt-8 border-t border-white/5 flex gap-4">
               <a href="https://www.facebook.com/profile.php?id=61586747937546" target="_blank" rel="noopener noreferrer"
                 className="flex-1 py-3 bg-[#3b5998] hover:bg-[#4c70ba] text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 rounded-sm transition-colors">
-                <Facebook className="w-4 h-4" /> {t("Facebook")}
+                <Facebook className="w-4 h-4" />
+                <AnimatedText
+                  animationType="fade"
+                  dependencyKey={`${currentLanguage}-contact-facebook`}
+                >
+                  {t("Facebook")}
+                </AnimatedText>
               </a>
               <a href="#" className="flex-1 py-3 bg-[#0068FF] hover:bg-[#0054cc] text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 rounded-sm transition-colors">
-                <MessageCircle className="w-4 h-4" /> {t("Zalo")}
+                <MessageCircle className="w-4 h-4" />
+                <AnimatedText
+                  animationType="fade"
+                  dependencyKey={`${currentLanguage}-contact-zalo-label`}
+                >
+                  {t("Zalo")}
+                </AnimatedText>
               </a>
             </div>
           </div>

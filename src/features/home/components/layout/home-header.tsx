@@ -137,7 +137,9 @@ export default function HomeHeader() {
                         onClick={(e) => handleScrollToSection(e, item.id)}
                         className="text-xl font-bold uppercase tracking-widest text-white/50 hover:text-yellow-400 transition-colors"
                       >
-                        {item.label}
+                        <AnimatedText animationType="fade" dependencyKey={`${currentLanguage}-mobile-${item.id}`}>
+                          {item.label}
+                        </AnimatedText>
                       </a>
                     ))}
                   </nav>

@@ -5,11 +5,13 @@ import { useTranslation } from "react-i18next"
 import { ChevronLeft, ChevronRight, CheckCircle2, ShieldAlert, Lightbulb } from "lucide-react"
 import BookingModal from "./modal/booking-modal"
 import { cn } from "@/lib/utils"
+import { AnimatedText } from "@/components/ui/animated-text"
 
 export default function InstructionsBlock() {
   const [currentStep, setCurrentStep] = useState(0)
   const [isBookingOpen, setIsBookingOpen] = useState(false)
   const { t, i18n } = useTranslation()
+  const currentLanguage = i18n.resolvedLanguage ?? i18n.language
 
   const steps = [
     {
@@ -65,11 +67,21 @@ export default function InstructionsBlock() {
               <div className="space-y-2">
                 {/* Subtitle: Màu Cam Đất/Đồng */}
                 <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#9A3412] block mb-2">
-                    {t("instructions.subtitle") || "HƯỚNG DẪN"}
+                    <AnimatedText
+                      animationType="fade"
+                      dependencyKey={`${currentLanguage}-instructions-subtitle`}
+                    >
+                      {t("instructions.subtitle") || "HƯỚNG DẪN"}
+                    </AnimatedText>
                 </span>
                 {/* Title: Màu Đỏ Gạch Trầm (Brick Red) */}
                 <h2 className="text-4xl lg:text-5xl font-bold text-[#7F1D1D] uppercase tracking-tight">
-                    {t("instructions.title") || "CÁCH THỨC\nTHAM GIA"}
+                    <AnimatedText
+                      animationType="slideUp"
+                      dependencyKey={`${currentLanguage}-instructions-title`}
+                    >
+                      {t("instructions.title") || "CÁCH THỨC\nTHAM GIA"}
+                    </AnimatedText>
                 </h2>
               </div>
               
@@ -98,7 +110,12 @@ export default function InstructionsBlock() {
                                   0{step.id}
                               </span>
                               <span className="text-sm font-bold tracking-wider uppercase text-[#2D2D2D]">
-                                  {t(step.titleKey)}
+                                  <AnimatedText
+                                    animationType="fade"
+                                    dependencyKey={`${currentLanguage}-instructions-step-title-${step.id}`}
+                                  >
+                                    {t(step.titleKey)}
+                                  </AnimatedText>
                               </span>
                           </div>
                       </button>
@@ -120,13 +137,23 @@ export default function InstructionsBlock() {
                         </div>
                         {/* Title: Màu Đỏ Gạch */}
                         <h3 className="text-2xl lg:text-3xl font-bold text-[#7F1D1D] uppercase tracking-wide">
-                             {t(currentStepData.titleKey)}
+                             <AnimatedText
+                               animationType="slideUp"
+                               dependencyKey={`${currentLanguage}-instructions-card-title-${currentStepData.id}`}
+                             >
+                               {t(currentStepData.titleKey)}
+                             </AnimatedText>
                         </h3>
                     </div>
 
                     {/* Description: Màu Nâu Đen */}
                     <p className="text-lg text-[#333333] leading-relaxed mb-8 font-light">
-                        {t(currentStepData.descriptionKey)}
+                        <AnimatedText
+                          animationType="fade"
+                          dependencyKey={`${currentLanguage}-instructions-card-desc-${currentStepData.id}`}
+                        >
+                          {t(currentStepData.descriptionKey)}
+                        </AnimatedText>
                     </p>
 
                     {/* Details List */}
@@ -135,7 +162,14 @@ export default function InstructionsBlock() {
                             <li key={idx} className="flex items-start gap-3 text-sm text-[#4A4A4A] py-3 border-t border-[#7F1D1D]/10">
                                 {/* Bullet: Màu Cam Đất */}
                                 <span className="mt-1.5 w-1.5 h-1.5 bg-[#9A3412] flex-shrink-0" />
-                                <span>{detail}</span>
+                                <span>
+                                  <AnimatedText
+                                    animationType="fade"
+                                    dependencyKey={`${currentLanguage}-instructions-detail-${currentStepData.id}-${idx}`}
+                                  >
+                                    {detail}
+                                  </AnimatedText>
+                                </span>
                             </li>
                         ))}
                     </ul>
