@@ -43,7 +43,7 @@ export default function HomeFooter() {
         {/* Copyright Divider */}
         <div className="border-t border-white/5 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-white/20 font-medium">
-            © 2026 Escape Room Danang. All rights reserved.
+            © 2026 Dau Chan Viet Danang. All rights reserved.
           </p>
 
           <div className="flex gap-6">
