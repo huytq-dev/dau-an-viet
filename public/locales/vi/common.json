@@ -88,8 +88,10 @@
     }
   },
   "pricing": {
+    "subtitle": "BẢNG GIÁ DỊCH VỤ",
     "title": "BẢNG GIÁ",
     "room1": {
+
       "name": "MIỀN ĐẤT VIỆT",
       "subtitle": "Khám Phá Văn Hoá Các Tỉnh Thành",
       "timings": ["60 phút", "120 phút"],

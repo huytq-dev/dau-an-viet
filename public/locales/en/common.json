@@ -88,7 +88,8 @@
     }
   },
   "pricing": {
-    "title": "PRICING",
+    "subtitle": "PRICE LIST",
+    "title": "Price",
     "room1": {
       "name": "LANDS OF VIETNAM",
       "subtitle": "Discover Provincial Cultures",
@@ -180,7 +181,7 @@
     "subtitle": "CONNECT WITH US",
     "email": "Email: dauchanviet.official@gmail.com",
     "fanpage": "Fanpage: Dấu Chân Việt - Monopoly Experience Hub",
-    "address1": "Address: Hai Chau Ward, Da Nang City",
+    "address1": "Address: Ngu Hanh Son Ward, Da Nang City",
     "address2": "Open Monday - Sunday, 09:00 - 22:00",
     "hotline": "HOTLINE: 0905316737",
     "whatsapp": "Whatsapp: 0905316737",
