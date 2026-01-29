@@ -1,8 +1,9 @@
-"use client"
+'use client'
 
 import { useTranslation } from "react-i18next"
 import { Clock, GraduationCap, Users } from "lucide-react"
 import { AnimatedText } from "@/components/ui/animated-text"
+import { cn } from "@/lib/utils"
 
 export default function PricingBlock() {
   const { t, i18n } = useTranslation()
@@ -39,10 +40,10 @@ export default function PricingBlock() {
   ]
 
   return (
-    // SECTION BACKGROUND: Màu Nâu Cà Phê Đậm (Dark Coffee) - Xen kẽ với màu Be sáng ở trên
+    // SECTION BACKGROUND: Đồng bộ với RoomsBlock (Radial Gradient Đỏ - Đen)
     <section
       id="pricing"
-      className="relative min-h-screen flex items-center py-24 bg-[#1F1612] overflow-hidden"
+      className="relative min-h-screen flex items-center py-24 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#360808] via-[#1a0505] to-black overflow-hidden"
     >
       
       {/* Decorative Element: Số nền mờ phía sau */}
@@ -54,7 +55,7 @@ export default function PricingBlock() {
         
         {/* Header Section */}
         <div className="text-center mb-16 space-y-4">
-            <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#B45309] block">
+            <span className="text-xs font-bold tracking-[0.3em] uppercase text-yellow-500 block">
                 <AnimatedText
                   animationType="fade"
                   dependencyKey={`${currentLanguage}-pricing-subtitle`}
@@ -70,7 +71,7 @@ export default function PricingBlock() {
                   {t('pricing.title') || "CHỌN GÓI TRẢI NGHIỆM"}
                 </AnimatedText>
             </h2>
-             <div className="h-1 w-20 bg-[#B45309] mx-auto mt-6" />
+             <div className="h-[2px] w-20 bg-yellow-500 mx-auto mt-6" />
         </div>
 
         {/* Pricing Cards Grid */}
@@ -83,13 +84,13 @@ export default function PricingBlock() {
             return (
               <div
                 key={room.id}
-                // CARD STYLE: Nền Nâu Đất (Dark Earth), Viền sáng nhẹ
-                className="group relative bg-[#2A201C] border border-white/5 hover:border-[#B45309]/50 rounded-sm p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]"
+                // CARD STYLE: Black/40 và Border đồng bộ với RoomsBlock
+                className="group relative bg-black/40 backdrop-blur-sm border border-white/10 hover:border-yellow-500/50 rounded-xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(234,179,8,0.1)]"
               >
                 
                 {/* Card Header */}
                 <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-[#D4A373] uppercase tracking-wide mb-2 group-hover:text-[#E6C29F] transition-colors">
+                  <h3 className="text-2xl font-bold text-white uppercase tracking-wide mb-2 group-hover:text-yellow-500 transition-colors">
                     <AnimatedText
                       animationType="fade"
                       dependencyKey={`${currentLanguage}-pricing-room-name-${room.id}`}
@@ -120,7 +121,7 @@ export default function PricingBlock() {
                   {/* Regular Price Row */}
                   <div className="grid grid-cols-3 items-center py-4 border-t border-white/5 hover:bg-white/5 transition-colors px-2 -mx-2 rounded">
                     <div className="flex items-center gap-2 text-white font-bold text-sm text-left">
-                      <Users className="w-4 h-4 text-[#B45309]" />
+                      <Users className="w-4 h-4 text-yellow-500" />
                       <span>
                         <AnimatedText
                           animationType="fade"
@@ -131,13 +132,13 @@ export default function PricingBlock() {
                       </span>
                     </div>
                     <div className="text-center text-xl font-bold text-white tabular-nums">{regular[0]}K</div>
-                    <div className="text-center text-xl font-bold text-[#D4A373] tabular-nums">{regular[1]}K</div>
+                    <div className="text-center text-xl font-bold text-yellow-500 tabular-nums">{regular[1]}K</div>
                   </div>
 
                   {/* Student Price Row */}
                   <div className="grid grid-cols-3 items-center py-4 border-t border-white/5 hover:bg-white/5 transition-colors px-2 -mx-2 rounded">
                     <div className="flex items-center gap-2 text-white font-bold text-sm text-left">
-                      <GraduationCap className="w-4 h-4 text-[#B45309]" />
+                      <GraduationCap className="w-4 h-4 text-yellow-500" />
                       <span>
                         <AnimatedText
                           animationType="fade"
@@ -148,16 +149,16 @@ export default function PricingBlock() {
                       </span>
                     </div>
                     <div className="text-center text-xl font-bold text-white tabular-nums">{student[0]}K</div>
-                    <div className="text-center text-xl font-bold text-[#D4A373] tabular-nums">{student[1]}K</div>
+                    <div className="text-center text-xl font-bold text-yellow-500 tabular-nums">{student[1]}K</div>
                   </div>
                 </div>
 
                 {/* Schedule Info */}
                 <div className="mt-8 pt-6 border-t border-dashed border-white/10">
                   <div className="flex items-start gap-3">
-                      <Clock className="w-5 h-5 text-[#B45309]/80 mt-1 flex-shrink-0" />
+                      <Clock className="w-5 h-5 text-yellow-500/80 mt-1 flex-shrink-0" />
                       <div>
-                          <p className="text-[10px] font-bold uppercase text-[#B45309]/80 mb-2 tracking-widest">
+                          <p className="text-[10px] font-bold uppercase text-yellow-500/80 mb-2 tracking-widest">
                             <AnimatedText
                               animationType="fade"
                               dependencyKey={`${currentLanguage}-pricing-schedule-label-${room.id}`}
@@ -178,7 +179,7 @@ export default function PricingBlock() {
                 </div>
 
                 {/* Hover Line Bottom */}
-                <div className="absolute bottom-0 left-0 w-full h-1 bg-[#B45309] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-yellow-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-b-xl" />
               </div>
             )
           })}
