@@ -59,7 +59,6 @@ export default function ContactBlock() {
               {/* Item Template Function cho gọn (hoặc viết trực tiếp) */}
               {[
                 { icon: MapPin, label: "contact.address", value: "contact.address1" },
-                { icon: MapPin, label: "contact.facility2", value: "contact.address2" },
                 { icon: Phone, label: "contact.hotlineZalo", value: "contact.hotline", subValue: "contact.zalo" },
                 { icon: Mail, label: "contact.emailLabel", value: "contact.email" },
                 { icon: Clock, label: "contact.workingHours", value: "contact.workingHoursValue" },

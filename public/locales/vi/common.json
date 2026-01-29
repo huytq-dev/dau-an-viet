@@ -49,7 +49,7 @@
       "fullContentEn": "Description: Experience rural Vietnam with folk traditions\nPlayers: 3-4 teams, 2-3 people per team\nIn the peaceful rhythm of Vietnamese villages, there is not only communal houses and wells, but also ancient beliefs passed down through generations.\n\nWhy should you experience this theme?\n• Distinctive space: Recreate village life with folk traditions\n• Perfect mystery: Legends and traditions woven subtly\n• Strategy & connection: Emphasizes teamwork and cooperation"
     },
     "room3": {
-      "title": "LÀNG NGHỀ TRUYỀN THỐNG",
+      "title": "Hơi Thở Làng Nghề",
       "titleEn": "TRADITIONAL CRAFTS",
       "desc": "Trải nghiệm khám phá văn hoá làng nghề truyền thống Việt Nam",
       "descEn": "Explore traditional crafts villages of Vietnam",
@@ -193,7 +193,7 @@
     "facility2": "Cơ sở 2",
     "hotlineZalo": "Hotline / Zalo",
     "workingHours": "Giờ mở cửa",
-    "workingHoursValue": "09:00 - 22:30 (Hằng ngày)",
+    "workingHoursValue": "09:00 - 23:00 (Hằng ngày)",
     "emailLabel": "Email",
     "facebook": "Facebook",
     "zaloChat": "Zalo Chat"
@@ -211,6 +211,7 @@
     "time": "Giờ",
     "players": "Số người chơi",
     "playersPlaceholder": "-- Chọn số người --",
+    "playerUnit": "người",
     "playersOptions": {
       "2-4": "2-4 người",
       "4-6": "4-6 người",
@@ -222,7 +223,7 @@
     "error": "Có lỗi xảy ra. Vui lòng thử lại hoặc liên hệ trực tiếp qua hotline.",
     "roomOptions": {
       "lang-viet-song": "Làng Việt Sống",
-      "lang-nghe-truyen-thong": "Làng Nghề Truyền Thống",
+      "lang-nghe-truyen-thong": "Hơi Thở Làng Nghề",
       "mien-dat-viet": "Miền Đất Việt"
     },
     "validation": {

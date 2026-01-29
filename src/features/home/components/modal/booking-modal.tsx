@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import { useState, useEffect } from "react"
 import { z } from "zod"
@@ -30,6 +30,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+// Import Slider từ shadcn/ui
+import { Slider } from "@/components/ui/slider"
 import { cn } from "@/lib/utils"
 import { AnimatedText } from "@/components/ui/animated-text"
 
@@ -42,20 +44,22 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
   const { t, i18n } = useTranslation('common')
   const currentLanguage = i18n.resolvedLanguage ?? i18n.language
 
+  // Cập nhật schema: players bây giờ là số từ 2 đến 12
   const bookingSchema = z.object({
     name: z.string().min(1, t("modal.validation.name") || "Bắt buộc"),
     phone: z.string().min(10, t("modal.validation.phone") || "SĐT không hợp lệ"),
     date: z.string().min(1, t("modal.validation.date") || "Bắt buộc"),
     time: z.string().min(1, t("modal.validation.time") || "Bắt buộc"),
     room: z.string().min(1, t("modal.validation.room") || "Bắt buộc"),
-    players: z.string().min(1, t("modal.validation.players") || "Bắt buộc"),
+    players: z.number().min(2).max(12),
   })
 
   type BookingFormValues = z.infer<typeof bookingSchema>
 
   const form = useForm<BookingFormValues>({
     resolver: zodResolver(bookingSchema),
-    defaultValues: { name: "", phone: "", date: "", time: "", room: "", players: "" },
+    // Default players là 2
+    defaultValues: { name: "", phone: "", date: "", time: "", room: "", players: 2 },
   })
 
   const [submitMessage, setSubmitMessage] = useState("")
@@ -91,7 +95,6 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
   }
 
   const roomOptions = t("modal.roomOptions", { returnObjects: true }) as Record<string, string>
-  const playerOptions = t("modal.playersOptions", { returnObjects: true }) as Record<string, string>
   const isSuccess = submitMessage === t("modal.success")
 
   // --- STYLE ---
@@ -102,68 +105,50 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      {/* Mobile Optimized DialogContent:
-        - w-[95%]: Chừa lề một chút trên mobile.
-        - max-h-[90vh] & overflow-y-auto: Cho phép cuộn nếu màn hình quá bé/ngang.
-        - rounded-xl: Bo góc mềm mại hơn.
-      */}
       <DialogContent className="w-[95%] sm:max-w-[500px] max-h-[90vh] overflow-y-auto p-0 gap-0 bg-[#160404] border border-yellow-900/30 shadow-2xl rounded-xl">
-        
+
         <DialogHeader className="px-4 py-4 sm:px-6 sm:py-5 border-b border-white/5 bg-[#1a0505] sticky top-0 z-10">
           <DialogTitle className="text-lg sm:text-xl font-bold tracking-widest text-yellow-500 uppercase text-center">
-            <AnimatedText
-              animationType="fade"
-              dependencyKey={`${currentLanguage}-modal-title`}
-            >
+            <AnimatedText animationType="fade" dependencyKey={`${currentLanguage}-modal-title`}>
               {t("modal.title") || "ĐẶT PHÒNG"}
             </AnimatedText>
           </DialogTitle>
         </DialogHeader>
 
         <Form {...form}>
-          {/* Padding giảm xuống p-4 trên mobile, p-6 trên desktop */}
           <form onSubmit={form.handleSubmit(onSubmit)} className="p-4 sm:p-6 space-y-4 sm:space-y-5">
-            
-            {/* Hàng 1: Họ tên & SĐT (Giữ nguyên logic grid cũ vì nó tự stack) */}
+
+            {/* Hàng 1: Tên & SĐT */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
               <FormField
                 control={form.control}
                 name="name"
                 render={({ field }) => (
                   <FormItem className="space-y-0">
-                    <FormLabel className={labelStyle}>
-                      <AnimatedText animationType="fade" dependencyKey={`${currentLanguage}-modal-name`}>
-                        {t("modal.name")}
-                      </AnimatedText>
-                    </FormLabel>
+                    <FormLabel className={labelStyle}>{t("modal.name")}</FormLabel>
                     <div className={fieldContainer}>
                       <User className={iconStyle} />
                       <FormControl>
                         <Input placeholder="Tên của bạn" {...field} className={inputBase} />
                       </FormControl>
                     </div>
-                    <FormMessage className="text-red-400 text-[10px] mt-1 ml-1" />
+                    <FormMessage className="text-red-400 text-[10px] mt-1" />
                   </FormItem>
                 )}
               />
-              
               <FormField
                 control={form.control}
                 name="phone"
                 render={({ field }) => (
                   <FormItem className="space-y-0">
-                    <FormLabel className={labelStyle}>
-                      <AnimatedText animationType="fade" dependencyKey={`${currentLanguage}-modal-phone`}>
-                        {t("modal.phone")}
-                      </AnimatedText>
-                    </FormLabel>
+                    <FormLabel className={labelStyle}>{t("modal.phone")}</FormLabel>
                     <div className={fieldContainer}>
                       <Phone className={iconStyle} />
                       <FormControl>
                         <Input placeholder="Số điện thoại" {...field} className={inputBase} />
                       </FormControl>
                     </div>
-                    <FormMessage className="text-red-400 text-[10px] mt-1 ml-1" />
+                    <FormMessage className="text-red-400 text-[10px] mt-1" />
                   </FormItem>
                 )}
               />
@@ -175,11 +160,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
               name="room"
               render={({ field }) => (
                 <FormItem className="space-y-0">
-                  <FormLabel className={labelStyle}>
-                    <AnimatedText animationType="fade" dependencyKey={`${currentLanguage}-modal-room`}>
-                      {t("modal.room")}
-                    </AnimatedText>
-                  </FormLabel>
+                  <FormLabel className={labelStyle}>{t("modal.room")}</FormLabel>
                   <div className={fieldContainer}>
                     <MapPin className={iconStyle} />
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
@@ -188,7 +169,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                           <SelectValue placeholder={t("modal.roomPlaceholder")} />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent className="bg-[#1f0a0a] border-yellow-900/30 text-white max-h-[200px]">
+                      <SelectContent className="bg-[#1f0a0a] border-yellow-900/30 text-white">
                         {Object.entries(roomOptions).map(([value, label]) => (
                           <SelectItem key={value} value={value} className="focus:bg-yellow-600 focus:text-black">
                             {label}
@@ -197,94 +178,86 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                       </SelectContent>
                     </Select>
                   </div>
-                  <FormMessage className="text-red-400 text-[10px] mt-1 ml-1" />
+                  <FormMessage className="text-red-400 text-[10px] mt-1" />
                 </FormItem>
               )}
             />
 
-            {/* Hàng 3: Ngày - Giờ - Số người (ĐÃ TỐI ƯU CHO MOBILE) */}
-            {/* - Mobile: Grid 2 cột. Ngày chiếm 2 cột (full width). Giờ + SL chia nhau.
-                - Desktop (sm): Grid 3 cột. Mỗi cái 1 cột.
-            */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              
-              {/* DATE: Mobile col-span-2 (Full), Desktop col-span-1 */}
+            {/* Hàng 3: Ngày & Giờ */}
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <FormField
                 control={form.control}
                 name="date"
                 render={({ field }) => (
-                <FormItem className="space-y-0 col-span-2 sm:col-span-1">
-                  <FormLabel className={labelStyle}>
-                    <AnimatedText animationType="fade" dependencyKey={`${currentLanguage}-modal-date`}>
-                      {t("modal.date")}
-                    </AnimatedText>
-                  </FormLabel>
+                  <FormItem className="space-y-0">
+                    <FormLabel className={labelStyle}>{t("modal.date")}</FormLabel>
                     <div className={fieldContainer}>
-                      <Calendar className={cn(iconStyle, "w-4 h-4 top-3.5 left-2.5")} />
+                      <Calendar className={cn(iconStyle, "w-4 h-4")} />
                       <FormControl>
-                        <Input type="date" {...field} className={cn(inputBase, "pl-8 pr-2")} />
+                        <Input type="date" {...field} className={cn(inputBase, "pl-10")} />
                       </FormControl>
                     </div>
                   </FormItem>
                 )}
               />
-
-              {/* TIME: 1 cột (trên cả mobile và desktop) */}
               <FormField
                 control={form.control}
                 name="time"
                 render={({ field }) => (
-                <FormItem className="space-y-0 col-span-1">
-                  <FormLabel className={labelStyle}>
-                    <AnimatedText animationType="fade" dependencyKey={`${currentLanguage}-modal-time`}>
-                      {t("modal.time")}
-                    </AnimatedText>
-                  </FormLabel>
+                  <FormItem className="space-y-0">
+                    <FormLabel className={labelStyle}>{t("modal.time")}</FormLabel>
                     <div className={fieldContainer}>
-                      <Clock className={cn(iconStyle, "w-4 h-4 top-3.5 left-2.5")} />
+                      <Clock className={cn(iconStyle, "w-4 h-4")} />
                       <FormControl>
-                        <Input type="time" {...field} className={cn(inputBase, "pl-8 pr-1 sm:pr-2")} />
+                        <Input type="time" {...field} className={cn(inputBase, "pl-10")} />
                       </FormControl>
-                    </div>
-                  </FormItem>
-                )}
-              />
-
-              {/* PLAYERS: 1 cột (trên cả mobile và desktop) */}
-              <FormField
-                control={form.control}
-                name="players"
-                render={({ field }) => (
-                <FormItem className="space-y-0 col-span-1">
-                  <FormLabel className={labelStyle}>
-                    <AnimatedText animationType="fade" dependencyKey={`${currentLanguage}-modal-players`}>
-                      {t("modal.players")}
-                    </AnimatedText>
-                  </FormLabel>
-                    <div className={fieldContainer}>
-                      <Users className={cn(iconStyle, "w-4 h-4 top-3.5 left-2.5")} />
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
-                        <FormControl>
-                          <SelectTrigger className={cn(inputBase, "pl-8 pr-2 w-full text-xs sm:text-sm")}>
-                            <SelectValue placeholder="SL" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent className="bg-[#1f0a0a] border-yellow-900/30 text-white min-w-[3rem]">
-                          {Object.entries(playerOptions).map(([value, label]) => (
-                            <SelectItem key={value} value={value} className="focus:bg-yellow-600 focus:text-black">
-                              {label}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
                     </div>
                   </FormItem>
                 )}
               />
             </div>
 
-            {/* Footer */}
-            <div className="pt-2 pb-1">
+            {/* Hàng 4: SL NGƯỜI (SLIDER 2 - 12) */}
+            <FormField
+              control={form.control}
+              name="players"
+              render={({ field }) => (
+                <FormItem className="space-y-3">
+                  <div className="flex justify-between items-end">
+                    <FormLabel className={labelStyle}>
+                      {t("modal.players") || "Số người"}
+                    </FormLabel>
+                    <span className="text-yellow-500 font-bold text-sm bg-yellow-500/10 px-2 py-0.5 rounded border border-yellow-500/20">
+                      {field.value} {t("modal.playerUnit") || "người"}
+                    </span>
+                  </div>
+                  <div className="px-2 py-4 bg-[#2b0e0e] rounded-lg border border-white/5">
+                    <FormControl>
+                      <Slider
+                        min={2}
+                        max={12}
+                        step={1}
+                        value={[field.value]}
+                        onValueChange={(vals) => field.onChange(vals[0])}
+                        className="py-1"
+                      />
+                    </FormControl>
+                    <div className="flex justify-between mt-2 text-[10px] text-white/30 font-medium px-1">
+                      <span>2</span>
+                      <span>4</span>
+                      <span>6</span>
+                      <span>8</span>
+                      <span>10</span>
+                      <span>12</span>
+                    </div>
+                  </div>
+                  <FormMessage className="text-red-400 text-[10px]" />
+                </FormItem>
+              )}
+            />
+
+            {/* Nút Gửi */}
+            <div className="pt-2">
               <Button
                 type="submit"
                 disabled={form.formState.isSubmitting}
@@ -293,23 +266,13 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                 {form.formState.isSubmitting ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                 ) : (
-                  <AnimatedText
-                    animationType="fade"
-                    dependencyKey={`${currentLanguage}-modal-submit`}
-                  >
-                    {t("modal.submit") || "XÁC NHẬN"}
-                  </AnimatedText>
+                  t("modal.submit") || "XÁC NHẬN"
                 )}
               </Button>
 
               {submitMessage && (
                 <div className={`mt-3 text-center text-sm font-medium ${isSuccess ? "text-green-500" : "text-red-500"}`}>
-                  <AnimatedText
-                    animationType="fade"
-                    dependencyKey={`${currentLanguage}-modal-message-${submitMessage}`}
-                  >
-                    {submitMessage}
-                  </AnimatedText>
+                  {submitMessage}
                 </div>
               )}
             </div>

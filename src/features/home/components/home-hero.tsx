@@ -38,7 +38,7 @@ export default function HeroBlock() {
               className="w-full h-full bg-cover bg-center bg-no-repeat"
               style={{
                 backgroundImage:
-                  "url('https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=2070&auto=format&fit=crop')",
+                  "url('/images/home_hero_bg_img.png')",
               }}
             />
           </motion.div>

@@ -191,7 +191,7 @@
     "facility2": "Facility 2",
     "hotlineZalo": "Hotline / Zalo",
     "workingHours": "Working Hours",
-    "workingHoursValue": "09:00 - 22:30 (Daily)",
+    "workingHoursValue": "09:00 - 23:00 (Daily)",
     "emailLabel": "Email",
     "facebook": "Facebook",
     "zaloChat": "Zalo Chat"
@@ -209,6 +209,7 @@
     "time": "Time",
     "players": "Number of Players",
     "playersPlaceholder": "-- Select number --",
+    "playerUnit": "people",
     "playersOptions": {
       "2-4": "2-4 people",
       "4-6": "4-6 people",

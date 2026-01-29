@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useCallback } from 'react'
-import { ChevronLeft, ChevronRight, Users, Clock, Star } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Users, Clock } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import BookingModal from './modal/booking-modal'
 import Image from 'next/image'
@@ -22,9 +22,10 @@ export default function RoomsBlock() {
       titleKey: 'rooms.room1.title',
       titleEnKey: 'rooms.room1.titleEn',
       image: '/images/room1-mienn-dat-viet.png',
-      difficulty: 4,
-      players: '2-6',
-      time: '60m',
+      // Thêm key cho phần players
+      playersKey: '3 - 4 đội/ 2 - 3 người',
+      playersEnKey: '3 - 4 teams / 2 - 3 players',
+      time: '90m',
       fullContentKey: 'rooms.room1.fullContent',
       fullContentEnKey: 'rooms.room1.fullContentEn',
     },
@@ -33,8 +34,8 @@ export default function RoomsBlock() {
       titleKey: 'rooms.room2.title',
       titleEnKey: 'rooms.room2.titleEn',
       image: '/images/room2-lang-viet-song.png',
-      difficulty: 5,
-      players: '4-8',
+      playersKey: '3 - 4 đội/ 2 - 3 người',
+      playersEnKey: '3 - 4 teams / 2 - 3 players',
       time: '90m',
       fullContentKey: 'rooms.room2.fullContent',
       fullContentEnKey: 'rooms.room2.fullContentEn',
@@ -44,9 +45,9 @@ export default function RoomsBlock() {
       titleKey: 'rooms.room3.title',
       titleEnKey: 'rooms.room3.titleEn',
       image: '/images/room3-lang-nghe.png',
-      difficulty: 3,
-      players: '2-5',
-      time: '45m',
+      playersKey: '3 - 4 đội/ 2 - 3 người',
+      playersEnKey: '3 - 4 teams / 2 - 3 players',
+      time: '90m',
       fullContentKey: 'rooms.room3.fullContent',
       fullContentEnKey: 'rooms.room3.fullContentEn',
     },
@@ -72,8 +73,10 @@ export default function RoomsBlock() {
     })
   }
 
+  // Hàm helper để lấy nội dung theo ngôn ngữ
   const getTitle = () => (currentLanguage === 'vi' ? t(current.titleKey) : t(current.titleEnKey))
   const getFullContent = () => (currentLanguage === 'vi' ? t(current.fullContentKey) : t(current.fullContentEnKey))
+  const getPlayers = () => (currentLanguage === 'vi' ? current.playersKey : current.playersEnKey)
 
   return (
     <>
@@ -162,17 +165,21 @@ export default function RoomsBlock() {
                     </AnimatedText>
                   </h2>
 
-                  <div className="flex items-center gap-6 py-4 border-y border-white/10 text-xs font-bold tracking-widest text-white/60">
-                    <div className="flex items-center gap-2"><Users className="w-4 h-4 text-yellow-500" /> {current.players}</div>
-                    <div className="flex items-center gap-2"><Clock className="w-4 h-4 text-yellow-500" /> {current.time}</div>
-                    <div className="flex items-center gap-1">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <Star key={i} className={cn("w-3 h-3", i < current.difficulty ? "fill-yellow-500 text-yellow-500" : "fill-white/10 text-white/10")} />
-                      ))}
+                  {/* INFO BAR - Cập nhật nội dung players song ngữ */}
+                  <div className="flex items-center gap-8 py-4 border-y border-white/10 text-xs font-bold tracking-widest text-white/60">
+                    <div className="flex items-center gap-2">
+                      <Users className="w-4 h-4 text-yellow-500" /> 
+                      <AnimatedText animationType="fade" dependencyKey={`${currentLanguage}-players-${current.id}`}>
+                        {getPlayers()}
+                      </AnimatedText>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Clock className="w-4 h-4 text-yellow-500" /> 
+                      {current.time}
                     </div>
                   </div>
 
-                  {/* HIỆN ĐẦY ĐỦ TEXT - Đã bỏ line-clamp */}
+                  {/* CONTENT */}
                   <div className="text-white/70 leading-relaxed text-sm lg:text-base whitespace-pre-line text-justify">
                     <AnimatedText animationType="fade" dependencyKey={`${currentLanguage}-room-content-${current.id}`}>
                       {getFullContent()}

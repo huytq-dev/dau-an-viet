@@ -12,7 +12,7 @@ export default function HomeFooter() {
             </p>
             <p className="text-xs text-white/40 font-medium tracking-widest uppercase">
              Không gian giải trí trải nghiệm Cờ Tỷ
-              Phú thực, kết hợp thử thách tương tác và văn hoa Việt
+              Phú thực, kết hợp thử thách tương tác và văn hoá Việt
               Nam.
             </p>
           </div>
@@ -20,7 +20,7 @@ export default function HomeFooter() {
           {/* Navigation Links */}
           <div className="flex gap-8">
             <a
-              href="#"
+              href="https://www.facebook.com/profile.php?id=61586747937546"
               className="text-xs font-bold uppercase tracking-widest text-white/60 hover:text-yellow-500 transition-colors"
             >
               Facebook
