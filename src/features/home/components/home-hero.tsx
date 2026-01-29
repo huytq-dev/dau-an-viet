@@ -64,7 +64,7 @@ export default function HeroBlock() {
                // Thêm drop-shadow để tagline rõ hơn
                className="uppercase tracking-[0.3em] text-xs md:text-sm text-yellow-400 font-bold drop-shadow-md"
             >
-              Monopoly Experience Hub
+              Không gian trải nghiệm Cờ Tỷ Phú thực
             </motion.span>
 
             {/* --- CẢI THIỆN 2 & 3: Font dày hơn và Drop Shadow mạnh --- */}
