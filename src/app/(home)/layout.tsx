@@ -1,6 +1,6 @@
 import React from "react"
-import HomeHeader from "@/features/home/components/layout/home-header"
-import HomeFooter from "@/features/home/components/layout/home-footer"
+import HomeHeader from "@/features/home/layout/home-header"
+import HomeFooter from "@/features/home/layout/home-footer"
 
 export default function HomeLayout({
   children,

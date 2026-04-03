@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
 import { ChevronLeft, ChevronRight, CheckCircle2, ShieldAlert, Lightbulb } from "lucide-react"
-import BookingModal from "./modal/booking-modal"
+import BookingModal from "../modal/booking-modal"
 import { cn } from "@/lib/utils"
 import { AnimatedText } from "@/components/ui/animated-text"
 

@@ -3,7 +3,7 @@
 import { useState, useCallback } from 'react'
 import { ChevronLeft, ChevronRight, Users, Clock } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import BookingModal from './modal/booking-modal'
+import BookingModal from '../modal/booking-modal'
 import Image from 'next/image'
 import { AnimatedText } from "@/components/ui/animated-text"
 import { cn } from "@/lib/utils"

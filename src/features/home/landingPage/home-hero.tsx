@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import BookingModal from "./modal/booking-modal";
+import BookingModal from "../modal/booking-modal";
 import { AnimatedText } from "@/components/ui/animated-text";
 import { ArrowRight } from "lucide-react";
 

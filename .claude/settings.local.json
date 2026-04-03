@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p \"L:/workspace/Job/dau-chan-viet/src/features/home/landingPage\")",
+      "Bash(mv \"L:/workspace/Job/dau-chan-viet/src/features/home/components\" \"L:/workspace/Job/dau-chan-viet/src/features/home/landingPage/components\")",
+      "Bash(mkdir:*)"
+    ]
+  }
+}
