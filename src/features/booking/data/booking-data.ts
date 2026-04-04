@@ -8,16 +8,16 @@ export const STATUS_LABELS: Record<AvailabilityStatus, string> = {
 }
 
 export const STATUS_BADGE_COLORS: Record<AvailabilityStatus, string> = {
-  good: 'bg-green-600',
-  'selling-fast': 'bg-orange-500',
-  'sold-out': 'bg-red-700',
-  'off-sale': 'bg-gray-500',
+  good: 'bg-tone-olive-mid',
+  'selling-fast': 'bg-tone-gold-mid',
+  'sold-out': 'bg-red-900',
+  'off-sale': 'bg-gray-600',
 }
 
 export const STATUS_DOT_COLORS: Record<AvailabilityStatus, string> = {
-  good: 'bg-green-500',
-  'selling-fast': 'bg-orange-400',
-  'sold-out': 'bg-red-600',
+  good: 'bg-tone-olive-light',
+  'selling-fast': 'bg-tone-gold-light',
+  'sold-out': 'bg-red-700',
   'off-sale': 'bg-gray-400',
 }
 
