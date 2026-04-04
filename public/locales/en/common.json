@@ -27,6 +27,8 @@
   "hero": {
     "heading": "DẤU CHÂN VIỆT",
     "title": "Mỗi nước đi, một trải nghiệm Việt",
+    "tagline": "Vietnam's First Real-Life Monopoly Experience",
+    "scroll": "Scroll",
     "button": "BOOK NOW"
   },
   "rooms": {
@@ -114,6 +116,7 @@
       "student": [119, 189],
       "schedule": "Mon - Before 17:00 Fri\nFrom 17:00 Fri, Sat, Sun"
     },
+    "audience": "Audience",
     "regular": "Regular",
     "student": "Student",
     "scheduleLabel": "Schedule:",
@@ -124,56 +127,26 @@
     "view_more": "VIEW ALL",
     "subtitle": "WHAT CUSTOMERS SAY",
     "items": [
-      {
-        "name": "Thao Vy",
-        "rating": 5,
-        "text": "After playing Lands of Vietnam, I experienced diverse cultures from different cities and regions. It's not just theoretical learning, but true experiential discovery with friends."
-      },
-      {
-        "name": "Quoc Vinh",
-        "rating": 5,
-        "text": "Friendly and enthusiastic staff. They patiently guided even first-time players like me. The game experience is unique and interesting. I'll definitely come back for more themes!"
-      },
-      {
-        "name": "Thanh Huong",
-        "rating": 5,
-        "text": "First time experiencing such a large-scale game space. Very exciting and got to explore Vietnamese cultures. The whole experience was amazing. Must try!"
-      },
-      {
-        "name": "Minh Duc",
-        "rating": 5,
-        "text": "Amazing experience! Not just a game but a fun way to learn about Vietnamese culture. The staff is very professional and enthusiastic."
-      },
-      {
-        "name": "Lan Anh",
-        "rating": 5,
-        "text": "The Living Villages theme is truly impressive. I felt like traveling back in time, discovering traditional cultural beauty. Will recommend to friends!"
-      },
-      {
-        "name": "Hoang Nam",
-        "rating": 5,
-        "text": "First time playing Monopoly on such a large scale. Beautiful space, fun atmosphere, and importantly learned a lot about traditional Vietnamese craft villages."
-      },
-      {
-        "name": "Huong Giang",
-        "rating": 5,
-        "text": "Love the organization and game design. Each theme has its own special features. Played all 3 themes and found them all great. Reasonable price for such an experience."
-      },
-      {
-        "name": "Tuan Anh",
-        "rating": 5,
-        "text": "The biggest plus is the enthusiastic and patient staff. Even if you don't know how to play, you'll get full support. Memorable experience!"
-      },
-      {
-        "name": "Ngoc Mai",
-        "rating": 5,
-        "text": "The space is very beautiful and meticulously designed. Feels like participating in a reality show about Vietnamese culture. Highly recommend!"
-      },
-      {
-        "name": "Duc Thanh",
-        "rating": 5,
-        "text": "Playing with a group of friends is very fun. The game encourages teamwork and strategic thinking. Already booked to come back for the remaining themes!"
-      }
+      { "name": "Thao Vy", "rating": 5, "text": "After playing Lands of Vietnam, I experienced diverse cultures from different cities and regions. It's not just theoretical learning, but true experiential discovery with friends." },
+      { "name": "Quoc Vinh", "rating": 5, "text": "Friendly and enthusiastic staff. They patiently guided even first-time players like me. The game experience is unique and interesting. I'll definitely come back for more themes!" },
+      { "name": "Thanh Huong", "rating": 5, "text": "First time experiencing such a large-scale game space. Very exciting and got to explore Vietnamese cultures. The whole experience was amazing. Must try!" },
+      { "name": "Minh Duc", "rating": 5, "text": "Amazing experience! Not just a game but a fun way to learn about Vietnamese culture. The staff is very professional and enthusiastic." },
+      { "name": "Lan Anh", "rating": 5, "text": "The Living Villages theme is truly impressive. I felt like traveling back in time, discovering traditional cultural beauty. Will recommend to friends!" },
+      { "name": "Hoang Nam", "rating": 5, "text": "First time playing Monopoly on such a large scale. Beautiful space, fun atmosphere, and importantly learned a lot about traditional Vietnamese craft villages." },
+      { "name": "Huong Giang", "rating": 5, "text": "Love the organization and game design. Each theme has its own special features. Played all 3 themes and found them all great. Reasonable price for such an experience." },
+      { "name": "Tuan Anh", "rating": 5, "text": "The biggest plus is the enthusiastic and patient staff. Even if you don't know how to play, you'll get full support. Memorable experience!" },
+      { "name": "Ngoc Mai", "rating": 5, "text": "The space is very beautiful and meticulously designed. Feels like participating in a reality show about Vietnamese culture. Highly recommend!" },
+      { "name": "Duc Thanh", "rating": 5, "text": "Playing with a group of friends is very fun. The game encourages teamwork and strategic thinking. Already booked to come back for the remaining themes!" },
+      { "name": "Phuong Linh", "rating": 5, "text": "The game board is beautifully and meticulously designed. Each property has its own story, helping me learn more about the history and culture of different regions. Thank you for creating such a wonderful experience!" },
+      { "name": "Van Hung", "rating": 5, "text": "Brought the kids and the whole family loved it. Children learned a lot about Vietnamese culture while adults had fun and relaxed. Very worthwhile!" },
+      { "name": "Thuy Duong", "rating": 5, "text": "First time seeing a Monopoly concept this well-crafted. From the space to the organization, everything is very professional. Will definitely come back many times!" },
+      { "name": "Bao Long", "rating": 5, "text": "The Traditional Crafts theme helped me learn about Vietnamese handicrafts. Learning while playing — very engaging. The staff is also very knowledgeable and explained everything clearly." },
+      { "name": "Hong Nhung", "rating": 5, "text": "Spacious and airy venue. The game suits many age groups. Came with friends and everyone had a great time. The price is very reasonable!" },
+      { "name": "Quang Minh", "rating": 5, "text": "Played all 3 themes and each has its own highlights. Lands of Vietnam let me explore provinces, while Living Villages brought me back to rural culture. Wonderful!" },
+      { "name": "Thanh Tam", "rating": 5, "text": "The staff is very enthusiastic and professional. They clearly explained the rules and were always ready to help. The space is also beautifully decorated." },
+      { "name": "Dinh Phong", "rating": 5, "text": "A unique and interesting experience. Not just entertainment but a vivid opportunity to explore Vietnamese culture. Highly recommend for everyone!" },
+      { "name": "Mai Phuong", "rating": 5, "text": "Came with the whole company and everyone loved it. Great for team building — everyone had to cooperate and strategize together. The space is also perfect for team events." },
+      { "name": "Hoang Son", "rating": 5, "text": "First visit and was impressed right away. Beautiful design, enthusiastic staff, great game. Already recommended to many friends and they loved it too. Will be back soon!" }
     ]
   },
   "contact": {

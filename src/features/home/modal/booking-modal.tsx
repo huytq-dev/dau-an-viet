@@ -1,9 +1,10 @@
 'use client'
 
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import { z } from "zod"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { useState } from "react"
 import { Loader2, Calendar, Clock, User, Phone, MapPin, Users } from "lucide-react"
 import { useTranslation } from "react-i18next"
 
@@ -30,35 +31,40 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-// Import Slider từ shadcn/ui
 import { Slider } from "@/components/ui/slider"
 import { cn } from "@/lib/utils"
 import { AnimatedText } from "@/components/ui/animated-text"
+
+// Schema định nghĩa ngoài component — không recreate mỗi lần render
+const bookingSchema = z.object({
+  name: z.string().min(1),
+  phone: z.string().min(10),
+  date: z.string().min(1),
+  time: z.string().min(1),
+  room: z.string().min(1),
+  players: z.number().min(2).max(12),
+})
+
+type BookingFormValues = z.infer<typeof bookingSchema>
 
 interface BookingModalProps {
   isOpen: boolean
   onClose: () => void
 }
 
+const fieldContainer = "relative bg-[#2b0e0e] border border-white/5 rounded-lg transition-all duration-200 focus-within:border-yellow-600/50 focus-within:ring-1 focus-within:ring-yellow-600/20"
+const inputBase = "h-11 bg-transparent border-none text-white placeholder:text-white/30 focus-visible:ring-0 pl-10 text-sm"
+const iconStyle = "absolute left-3 top-3 h-5 w-5 text-yellow-600/70"
+const labelStyle = "text-xs font-semibold text-yellow-500/80 mb-1.5 ml-1 uppercase tracking-wide"
+
+const today = new Date().toISOString().split('T')[0]
+
 export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
   const { t, i18n } = useTranslation('common')
   const currentLanguage = i18n.resolvedLanguage ?? i18n.language
 
-  // Cập nhật schema: players bây giờ là số từ 2 đến 12
-  const bookingSchema = z.object({
-    name: z.string().min(1, t("modal.validation.name") || "Bắt buộc"),
-    phone: z.string().min(10, t("modal.validation.phone") || "SĐT không hợp lệ"),
-    date: z.string().min(1, t("modal.validation.date") || "Bắt buộc"),
-    time: z.string().min(1, t("modal.validation.time") || "Bắt buộc"),
-    room: z.string().min(1, t("modal.validation.room") || "Bắt buộc"),
-    players: z.number().min(2).max(12),
-  })
-
-  type BookingFormValues = z.infer<typeof bookingSchema>
-
   const form = useForm<BookingFormValues>({
     resolver: zodResolver(bookingSchema),
-    // Default players là 2
     defaultValues: { name: "", phone: "", date: "", time: "", room: "", players: 2 },
   })
 
@@ -97,12 +103,6 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
   const roomOptions = t("modal.roomOptions", { returnObjects: true }) as Record<string, string>
   const isSuccess = submitMessage === t("modal.success")
 
-  // --- STYLE ---
-  const fieldContainer = "relative bg-[#2b0e0e] border border-white/5 rounded-lg transition-all duration-200 focus-within:border-yellow-600/50 focus-within:ring-1 focus-within:ring-yellow-600/20"
-  const inputBase = "h-11 bg-transparent border-none text-white placeholder:text-white/30 focus-visible:ring-0 pl-10 text-sm"
-  const iconStyle = "absolute left-3 top-3 h-5 w-5 text-yellow-600/70"
-  const labelStyle = "text-xs font-semibold text-yellow-500/80 mb-1.5 ml-1 uppercase tracking-wide"
-
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="w-[95%] sm:max-w-[500px] max-h-[90vh] overflow-y-auto p-0 gap-0 bg-[#160404] border border-yellow-900/30 shadow-2xl rounded-xl">
@@ -129,7 +129,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                     <div className={fieldContainer}>
                       <User className={iconStyle} />
                       <FormControl>
-                        <Input placeholder="Tên của bạn" {...field} className={inputBase} />
+                        <Input placeholder={t("modal.namePlaceholder") || "Tên của bạn"} {...field} className={inputBase} />
                       </FormControl>
                     </div>
                     <FormMessage className="text-red-400 text-[10px] mt-1" />
@@ -145,7 +145,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                     <div className={fieldContainer}>
                       <Phone className={iconStyle} />
                       <FormControl>
-                        <Input placeholder="Số điện thoại" {...field} className={inputBase} />
+                        <Input placeholder={t("modal.phonePlaceholder") || "0xxx xxx xxx"} {...field} className={inputBase} />
                       </FormControl>
                     </div>
                     <FormMessage className="text-red-400 text-[10px] mt-1" />
@@ -194,9 +194,10 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                     <div className={fieldContainer}>
                       <Calendar className={cn(iconStyle, "w-4 h-4")} />
                       <FormControl>
-                        <Input type="date" {...field} className={cn(inputBase, "pl-10")} />
+                        <Input type="date" min={today} {...field} className={cn(inputBase, "pl-10")} />
                       </FormControl>
                     </div>
+                    <FormMessage className="text-red-400 text-[10px] mt-1" />
                   </FormItem>
                 )}
               />
@@ -209,15 +210,16 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                     <div className={fieldContainer}>
                       <Clock className={cn(iconStyle, "w-4 h-4")} />
                       <FormControl>
-                        <Input type="time" {...field} className={cn(inputBase, "pl-10")} />
+                        <Input type="time" min="09:00" max="23:00" {...field} className={cn(inputBase, "pl-10")} />
                       </FormControl>
                     </div>
+                    <FormMessage className="text-red-400 text-[10px] mt-1" />
                   </FormItem>
                 )}
               />
             </div>
 
-            {/* Hàng 4: SL NGƯỜI (SLIDER 2 - 12) */}
+            {/* Hàng 4: Số người (Slider 2-12) */}
             <FormField
               control={form.control}
               name="players"
