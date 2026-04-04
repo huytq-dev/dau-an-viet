@@ -61,7 +61,7 @@ export default function BookingCalendar({
   const monthLabel = `${MONTH_NAMES[month.getMonth()]} ${month.getFullYear()}`
 
   return (
-    <div className="rounded-2xl overflow-hidden border border-[#991b1b]/60 shadow-2xl">
+    <div className="rounded-2xl overflow-hidden border border-[#991b1b]/60 shadow-2xl shadow-black/40">
       {/* Month header */}
       <div className="flex items-center justify-between px-5 py-4 bg-[#5a0f0f]">
         <h2 className="text-lg sm:text-xl font-bold text-[#fef3c7]">{monthLabel}</h2>
@@ -117,15 +117,15 @@ export default function BookingCalendar({
               onKeyDown={(e) => e.key === 'Enter' && isClickable && onDateSelect(dateStr)}
               className={cn(
                 'relative border-b border-r border-[#991b1b]/20 min-h-[80px] sm:min-h-[105px] p-1.5 sm:p-2 flex flex-col gap-1 select-none',
-                isClickable && 'cursor-pointer hover:bg-[#991b1b]/40 transition-colors',
-                !isCurrentMonth && 'opacity-35',
+                isClickable && 'cursor-pointer hover:bg-white/[0.07] hover:ring-1 hover:ring-inset hover:ring-[#fcd34d]/25 transition-all duration-150',
+                !isCurrentMonth && 'opacity-30',
               )}
             >
-              {/* Lowest price ribbon */}
-              {dayData?.isLowestPrice && isCurrentMonth && (
+              {/* T7/CN badge — đánh dấu cuối tuần giá cao hơn */}
+              {isCurrentMonth && dayData && (new Date(dateStr).getDay() === 0 || new Date(dateStr).getDay() === 6) && (
                 <div className="absolute top-0 left-0 overflow-hidden w-10 h-10 pointer-events-none">
-                  <div className="absolute bg-[#fcd34d] text-[#7f1d1d] text-[6px] sm:text-[7px] font-black w-[72px] text-center py-[3px] -left-[18px] top-[12px] -rotate-45 leading-tight">
-                    GIÁ<br />THẤP
+                  <div className="absolute bg-[var(--tone-purple-mid)] text-[var(--tone-purple-fg)] text-[6px] sm:text-[7px] font-black w-[72px] text-center py-[3px] -left-[18px] top-[12px] -rotate-45 leading-tight">
+                    CUỐI<br />TUẦN
                   </div>
                 </div>
               )}

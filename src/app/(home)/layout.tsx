@@ -1,6 +1,6 @@
 import React from "react"
 import HomeHeader from "@/features/home/layout/home-header"
-import HomeFooter from "@/features/home/layout/home-footer"
+import ConditionalFooter from "@/features/home/layout/conditional-footer"
 import { BookingProvider } from "@/providers/booking-context"
 
 export default function HomeLayout({
@@ -15,7 +15,7 @@ export default function HomeLayout({
         <main className="flex-1">
           {children}
         </main>
-        <HomeFooter />
+        <ConditionalFooter />
       </div>
     </BookingProvider>
   )

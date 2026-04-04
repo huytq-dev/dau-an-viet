@@ -89,8 +89,8 @@ export default function HomeHeader() {
   return (
     <header
       className={`fixed top-0 w-full z-50 h-20 flex items-center border-b backdrop-blur-xl transition-colors duration-300 ${
-        isScrolled
-          ? 'bg-black/90 border-white/10'
+        !isHomePage || isScrolled
+          ? 'bg-[#1a0505] border-white/10'
           : 'bg-transparent border-white/10'
       }`}
     >
