@@ -9,11 +9,40 @@ export interface Team {
   players: PlayerSlot[]
 }
 
-// ─── Ticket types đã bỏ ──────────────────────────────────────────────────────
+// ─── Ticket types (legacy) ───────────────────────────────────────────────────
 // Không còn chọn loại vé — giá cố định theo room + khung giờ
-// (TicketTypeModal đã không dùng nữa)
-// export interface TicketType { ... }
-// export const TICKET_TYPES = [...]
+// Tuy nhiên vẫn export để tránh lỗi build do TicketTypeModal còn tồn tại.
+export interface TicketType {
+  id: string
+  name: string
+  basePrice: number
+  bookingFee: number
+  description: string
+}
+
+export const TICKET_TYPES: TicketType[] = [
+  {
+    id: 'regular',
+    name: 'Vé thường',
+    basePrice: 120,
+    bookingFee: 10,
+    description: 'Áp dụng cho hầu hết khung giờ tiêu chuẩn.',
+  },
+  {
+    id: 'student',
+    name: 'Vé HSSV',
+    basePrice: 100,
+    bookingFee: 10,
+    description: 'Ưu đãi cho HSSV. Không áp dụng sau 21:00.',
+  },
+  {
+    id: 'peak',
+    name: 'Vé giờ cao điểm',
+    basePrice: 140,
+    bookingFee: 10,
+    description: 'Áp dụng cho các khung giờ cao điểm.',
+  },
+]
 
 // ─── Room info ───────────────────────────────────────────────────────────────
 

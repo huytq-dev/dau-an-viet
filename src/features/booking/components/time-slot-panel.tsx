@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef } from "react"
 import { useRouter } from "next/navigation"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, type Variants } from "framer-motion"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import { cn } from "@/lib/utils"
@@ -60,28 +60,28 @@ function filterByTime(
 }
 
 // ── Animation variants ────────────────────────────────────────────────────────
-const contentVariants = {
+const contentVariants: Variants = {
   hidden: { opacity: 0, y: 10 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.22, ease: [0.25, 0.46, 0.45, 0.94], staggerChildren: 0.06 },
+    transition: { duration: 0.22, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number], staggerChildren: 0.06 },
   },
   exit: { opacity: 0, y: -6, transition: { duration: 0.15 } },
 }
 
-const roomVariants = {
+const roomVariants: Variants = {
   hidden: { opacity: 0, y: 12 },
-  show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 380, damping: 28 } },
+  show: { opacity: 1, y: 0, transition: { type: 'spring' as const, stiffness: 380, damping: 28 } },
 }
 
-const gridVariants = {
+const gridVariants: Variants = {
   show: { transition: { staggerChildren: 0.035 } },
 }
 
-const slotVariants = {
+const slotVariants: Variants = {
   hidden: { opacity: 0, scale: 0.88, y: 6 },
-  show: { opacity: 1, scale: 1, y: 0, transition: { type: 'spring', stiffness: 420, damping: 26 } },
+  show: { opacity: 1, scale: 1, y: 0, transition: { type: 'spring' as const, stiffness: 420, damping: 26 } },
 }
 
 export default function TimeSlotPanel({
