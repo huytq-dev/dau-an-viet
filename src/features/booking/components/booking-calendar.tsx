@@ -121,11 +121,11 @@ export default function BookingCalendar({
                 !isCurrentMonth && 'opacity-35',
               )}
             >
-              {/* Lowest price ribbon */}
-              {dayData?.isLowestPrice && isCurrentMonth && (
+              {/* T7/CN badge — đánh dấu cuối tuần giá cao hơn */}
+              {isCurrentMonth && dayData && (new Date(dateStr).getDay() === 0 || new Date(dateStr).getDay() === 6) && (
                 <div className="absolute top-0 left-0 overflow-hidden w-10 h-10 pointer-events-none">
                   <div className="absolute bg-[#fcd34d] text-[#7f1d1d] text-[6px] sm:text-[7px] font-black w-[72px] text-center py-[3px] -left-[18px] top-[12px] -rotate-45 leading-tight">
-                    GIÁ<br />THẤP
+                    CUỐI<br />TUẦN
                   </div>
                 </div>
               )}

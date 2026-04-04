@@ -75,21 +75,31 @@ src/
 
 ---
 
-## Data / Prices (mock, VND)
+## Lịch & Giá thực tế (VND/người)
 
-| Ngày | Giá |
-|------|-----|
-| Cuối tuần | 649k–699k |
-| Ngày thường | 549k–599k |
-| Ngày khuyến mãi (14–17, 21–24, 28–30 tháng 4) | 499k |
+**2 phòng, 8 slot/ngày, mỗi slot 90 phút:**
 
-| Loại vé | Giá (base + phí) |
-|---------|-----------------|
-| VIP | 850k + 30k |
-| Cao Cấp | 649k + 30k |
-| Tiêu Chuẩn | 499k + 30k |
-| Hỗ Trợ Đặc Biệt | 499k + 30k |
-| Combo Ẩm Thực | 699k + 30k |
+| Slot | Miền Đất Việt | Làng Việt Sống |
+|------|--------------|----------------|
+| 1 | 09:00–10:30 | 09:10–10:40 |
+| 2 | 10:45–12:15 | 10:55–12:25 |
+| 3 | 12:30–14:00 | 12:40–14:10 |
+| 4 | 14:15–15:45 | 14:25–15:55 |
+| 5 | 16:00–17:30 | 16:10–17:40 |
+| 6 | 17:45–19:15 | 17:55–19:25 |
+| 7 | 19:30–21:00 | 19:40–21:10 |
+| 8 | 21:15–22:45 | 21:25–22:55 |
+
+**Giá (hàm `getSlotPrice(roomId, date, time)` trong booking-data.ts):**
+
+| | Off-peak (T2–T6 trước 17:00) | Peak (T6 ≥17:00, T7, CN) |
+|-|------------------------------|--------------------------|
+| Miền Đất Việt | 199k | 229k |
+| Làng Việt Sống | 219k | 249k |
+
+**Phụ thu:** +20k/người sau 21:00 (Slot 8)
+
+**Không còn chọn loại vé** — giá hiện ngay trên slot button, click là thêm vào giỏ.
 
 ---
 

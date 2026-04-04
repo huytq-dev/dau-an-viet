@@ -4,6 +4,27 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* ── Brand Tone Palette ── */
+  --color-tone-olive:        var(--tone-olive);
+  --color-tone-olive-mid:    var(--tone-olive-mid);
+  --color-tone-olive-light:  var(--tone-olive-light);
+  --color-tone-olive-fg:     var(--tone-olive-fg);
+
+  --color-tone-teal:         var(--tone-teal);
+  --color-tone-teal-mid:     var(--tone-teal-mid);
+  --color-tone-teal-light:   var(--tone-teal-light);
+  --color-tone-teal-fg:      var(--tone-teal-fg);
+
+  --color-tone-gold:         var(--tone-gold);
+  --color-tone-gold-mid:     var(--tone-gold-mid);
+  --color-tone-gold-light:   var(--tone-gold-light);
+  --color-tone-gold-fg:      var(--tone-gold-fg);
+
+  --color-tone-purple:       var(--tone-purple);
+  --color-tone-purple-mid:   var(--tone-purple-mid);
+  --color-tone-purple-light: var(--tone-purple-light);
+  --color-tone-purple-fg:    var(--tone-purple-fg);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -47,6 +68,35 @@
 }
 
 :root {
+  /* ── Brand Tone Palette ────────────────────────────────────────────────────
+   * 4 tông màu trích từ logo thương hiệu, dùng để phân biệt đội/section/card
+   * Mỗi tông có: dark (header/bg đậm) · mid (hover) · light (accent/badge) · fg (text trên nền đó)
+   * ─────────────────────────────────────────────────────────────────────── */
+
+  /* Tone 1 — Xanh rêu (Olive) */
+  --tone-olive:        #5f6830;
+  --tone-olive-mid:    #778040;
+  --tone-olive-light:  #b8be78;
+  --tone-olive-fg:     #f5f2dc;
+
+  /* Tone 2 — Xanh teal */
+  --tone-teal:         #2e6060;
+  --tone-teal-mid:     #407878;
+  --tone-teal-light:   #7ab2b2;
+  --tone-teal-fg:      #e4f4f4;
+
+  /* Tone 3 — Vàng đất (Gold) */
+  --tone-gold:         #7a6010;
+  --tone-gold-mid:     #9a7c1a;
+  --tone-gold-light:   #c8a838;
+  --tone-gold-fg:      #fef8e0;
+
+  /* Tone 4 — Tím */
+  --tone-purple:       #3a1f68;
+  --tone-purple-mid:   #553088;
+  --tone-purple-light: #9070c0;
+  --tone-purple-fg:    #f0eaf8;
+
   /* Primary Colors - Red/Yellow Theme */
   --background: #7f1d1d;
   --foreground: #fef3c7;

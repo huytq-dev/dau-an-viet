@@ -1,3 +1,8 @@
+// ─── KHÔNG CÒN SỬ DỤNG ───────────────────────────────────────────────────────
+// Đã bỏ chọn loại vé — giá cố định theo room + khung giờ (peak/off-peak)
+// Xem: booking-data.ts → getSlotPrice()
+// ─────────────────────────────────────────────────────────────────────────────
+
 "use client"
 
 import { X } from "lucide-react"
