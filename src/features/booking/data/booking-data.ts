@@ -126,7 +126,7 @@ export function getTimeSlotsForDate(dateStr: string): RoomSchedule[] {
   return Object.entries(ROOM_SLOTS).map(([roomId, slots]) => ({
     roomId,
     roomName: ROOM_NAMES[roomId],
-    location: 'Đầu Chân Việt, 123 Nguyễn Du, Quận 1, TP.HCM',
+    location: 'Ngũ Hành Sơn, Đà Nẵng',
     timeSlots: slots.map(({ start, end }, idx) => ({
       time: start,
       slotLabel: `SLOT ${idx + 1}`,

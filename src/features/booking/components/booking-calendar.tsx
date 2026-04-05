@@ -117,8 +117,8 @@ export default function BookingCalendar({
               onClick={() => isClickable && onDateSelect(dateStr)}
               onKeyDown={(e) => e.key === 'Enter' && isClickable && onDateSelect(dateStr)}
               className={cn(
-                'relative border-b border-r border-[#991b1b]/20 min-h-[80px] sm:min-h-[105px] p-1.5 sm:p-2 flex flex-col gap-1 select-none bg-white',
-                isClickable && 'cursor-pointer hover:bg-[#fcd34d]/10 hover:ring-1 hover:ring-inset hover:ring-[#fcd34d]/40 transition-all duration-150',
+                'relative border-b border-r border-[#991b1b]/20 min-h-[80px] sm:min-h-[105px] p-1.5 sm:p-2 flex flex-col gap-1 select-none bg-white transition-all duration-150',
+                isClickable && 'cursor-pointer hover:bg-[#fff8e7] hover:border-[#fcd34d]/60 hover:shadow-[inset_0_0_0_2px_#fcd34d]',
                 !isCurrentMonth && 'opacity-30',
               )}
             >
@@ -150,7 +150,7 @@ export default function BookingCalendar({
               {/* Price + status */}
               {dayData && isCurrentMonth && (
                 <>
-                  <p className="text-[9px] sm:text-[10px] text-gray-500 text-center leading-tight">
+                  <p className="text-[9px] sm:text-[10px] text-center leading-tight font-semibold text-[#991b1b]">
                     TỪ {formatPrice(dayData.basePrice)}
                   </p>
                   <div className={cn(
