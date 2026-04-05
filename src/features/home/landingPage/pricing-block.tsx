@@ -1,27 +1,17 @@
 'use client'
 
 import { useTranslation } from "react-i18next"
+import { useRouter } from "next/navigation"
 import { Clock } from "lucide-react"
 import { AnimatedText } from "@/components/ui/animated-text"
 import { cn } from "@/lib/utils"
-import { useBooking } from "@/providers/booking-context"
 
 export default function PricingBlock() {
   const { t, i18n } = useTranslation()
   const currentLanguage = i18n.resolvedLanguage ?? i18n.language
-  const { open } = useBooking()
+  const router = useRouter()
 
   const pricingRooms = [
-    {
-      id: 1,
-      nameKey: 'pricing.room1.name',
-      subtitleKey: 'pricing.room1.subtitle',
-      timingsKey: 'pricing.room1.timings',
-      regularKey: 'pricing.room1.regular',
-      studentKey: 'pricing.room1.student',
-      scheduleKey: 'pricing.room1.schedule',
-      recommended: true,
-    },
     {
       id: 2,
       nameKey: 'pricing.room2.name',
@@ -31,6 +21,16 @@ export default function PricingBlock() {
       studentKey: 'pricing.room2.student',
       scheduleKey: 'pricing.room2.schedule',
       recommended: false,
+    },
+    {
+      id: 1,
+      nameKey: 'pricing.room1.name',
+      subtitleKey: 'pricing.room1.subtitle',
+      timingsKey: 'pricing.room1.timings',
+      regularKey: 'pricing.room1.regular',
+      studentKey: 'pricing.room1.student',
+      scheduleKey: 'pricing.room1.schedule',
+      recommended: true,
     },
     {
       id: 3,
@@ -150,26 +150,6 @@ export default function PricingBlock() {
                   </div>
                 </div>
 
-                {/* Schedule Info */}
-                <div className="mt-8 pt-6 border-t border-dashed border-white/10">
-                  <div className="flex items-start gap-3">
-                    <Clock className="w-5 h-5 text-yellow-500/80 mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="text-[10px] font-bold uppercase text-yellow-500/80 mb-2 tracking-widest">
-                        {t('pricing.scheduleLabel') || "LỊCH HOẠT ĐỘNG"}
-                      </p>
-                      <p className="text-white/60 text-sm leading-relaxed whitespace-pre-line font-light">
-                        <AnimatedText
-                          animationType="fade"
-                          dependencyKey={`${currentLanguage}-pricing-schedule-${room.id}`}
-                        >
-                          {t(room.scheduleKey)}
-                        </AnimatedText>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
                 {/* Hover Line Bottom */}
                 <div className={cn(
                   "absolute bottom-0 left-0 w-full h-1 bg-yellow-500 transition-transform duration-500 origin-left rounded-b-xl",
@@ -191,7 +171,7 @@ export default function PricingBlock() {
             ))}
           </ul>
           <button
-            onClick={open}
+            onClick={() => router.push('/booking')}
             className="px-12 py-4 bg-yellow-500 text-black font-black uppercase tracking-widest hover:bg-yellow-400 transition-colors rounded-sm text-sm"
           >
             <AnimatedText animationType="fade" dependencyKey={`${currentLanguage}-pricing-cta`}>
