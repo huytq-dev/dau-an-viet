@@ -97,9 +97,20 @@ export default function TimeSlotPanel({
   const surroundingDates = useMemo(() => getSurroundingDates(selectedDate), [selectedDate])
 
   const roomSchedules = useMemo(() => {
+    const now = new Date()
+    const todayStr = toDateStr(now)
+    const isToday = selectedDate === todayStr
+    const nowMinutes = now.getHours() * 60 + now.getMinutes()
+    const closingMinutes = 21 * 60 + 15 // 21:15
+
     return getTimeSlotsForDate(selectedDate).map(room => ({
       ...room,
-      timeSlots: filterByTime(room.timeSlots, timeFilter),
+      timeSlots: filterByTime(room.timeSlots, timeFilter).filter(slot => {
+        if (!isToday) return true
+        if (nowMinutes >= closingMinutes) return false
+        const [h, m] = slot.time.split(':').map(Number)
+        return h * 60 + m > nowMinutes
+      }),
     }))
   }, [selectedDate, timeFilter])
 
@@ -160,22 +171,25 @@ export default function TimeSlotPanel({
           >
             {surroundingDates.map(dateStr => {
               const d = new Date(dateStr)
+              const todayStr = toDateStr(new Date())
               const hasData = CALENDAR_MAP.has(dateStr)
+              const isPast = dateStr < todayStr
+              const isAvailable = hasData && !isPast
               const isSelected = dateStr === selectedDate
 
               return (
                 <button
                   key={dateStr}
                   data-selected={isSelected}
-                  disabled={!hasData}
-                  onClick={() => hasData && onDateChange(dateStr)}
+                  disabled={!isAvailable}
+                  onClick={() => isAvailable && onDateChange(dateStr)}
                   className={cn(
                     'relative flex flex-col items-center px-3 py-2 rounded-xl min-w-[52px] shrink-0 transition-colors',
                     isSelected
                       ? 'text-white'
-                      : hasData
+                      : isAvailable
                         ? 'hover:bg-gray-100 text-gray-800'
-                        : 'text-gray-300 cursor-not-allowed',
+                        : 'text-gray-300 cursor-not-allowed opacity-40',
                   )}
                 >
                   {isSelected && (

@@ -7,13 +7,13 @@ import Image from 'next/image'
 import { AnimatedText } from "@/components/ui/animated-text"
 import { cn } from "@/lib/utils"
 import { motion, AnimatePresence } from 'framer-motion'
-import { useBooking } from '@/providers/booking-context'
+import { useRouter } from 'next/navigation'
 import { roomsData } from '@/features/home/data/rooms'
 
 export default function RoomsBlock() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [direction, setDirection] = useState(0)
-  const { open } = useBooking()
+  const router = useRouter()
   const { t, i18n } = useTranslation()
   const currentLanguage = i18n.resolvedLanguage ?? i18n.language
 
@@ -148,7 +148,7 @@ export default function RoomsBlock() {
 
                 <div className="flex gap-4 pt-4">
                   <button
-                    onClick={open}
+                    onClick={() => router.push('/booking')}
                     className="flex-1 lg:flex-none px-8 py-4 bg-yellow-500 text-black font-black uppercase tracking-widest hover:bg-yellow-400 transition-colors rounded-sm"
                   >
                     <AnimatedText animationType="fade" dependencyKey={`${currentLanguage}-btn-booking`}>

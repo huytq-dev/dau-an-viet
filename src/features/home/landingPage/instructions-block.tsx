@@ -5,11 +5,11 @@ import { useTranslation } from "react-i18next"
 import { ChevronLeft, ChevronRight, CheckCircle2, ShieldAlert, Lightbulb } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { AnimatedText } from "@/components/ui/animated-text"
-import { useBooking } from "@/providers/booking-context"
+import { useRouter } from "next/navigation"
 
 export default function InstructionsBlock() {
   const [currentStep, setCurrentStep] = useState(0)
-  const { open } = useBooking()
+  const router = useRouter()
   const { t, i18n } = useTranslation()
   const currentLanguage = i18n.resolvedLanguage ?? i18n.language
 
@@ -112,7 +112,7 @@ export default function InstructionsBlock() {
             {/* Desktop CTA */}
             <div className="hidden lg:block">
               <button
-                onClick={open}
+                onClick={() => router.push('/booking')}
                 className="px-8 py-4 bg-[#7F1D1D] text-white font-black uppercase tracking-widest hover:bg-[#9A3412] transition-colors rounded-sm w-full text-sm"
               >
                 {t('hero.button')}
@@ -182,7 +182,7 @@ export default function InstructionsBlock() {
               {/* Mobile CTA */}
               <div className="mt-6 lg:hidden">
                 <button
-                  onClick={open}
+                  onClick={() => router.push('/booking')}
                   className="w-full px-8 py-4 bg-[#7F1D1D] text-white font-black uppercase tracking-widest hover:bg-[#9A3412] transition-colors rounded-sm text-sm"
                 >
                   {t('hero.button')}

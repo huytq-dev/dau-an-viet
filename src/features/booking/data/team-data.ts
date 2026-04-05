@@ -81,7 +81,7 @@ export function getTeamsForSlot(roomId: string, date: string, time: string): Tea
   return [1, 2, 3, 4].map((teamId, teamIdx) => ({
     teamId,
     teamName: `ĐỘI ${teamId}`,
-    players: [1, 2, 3, 4, 5, 6].map((playerId, playerIdx) => ({
+    players: [1, 2, 3, 4].map((playerId, playerIdx) => ({
       playerId,
       isBooked: isBooked(teamIdx, playerIdx),
     })),

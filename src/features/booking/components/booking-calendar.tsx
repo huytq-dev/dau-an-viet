@@ -49,6 +49,11 @@ function buildCalendarGrid(month: Date): Date[] {
   })
 }
 
+function isClosingTime(): boolean {
+  const now = new Date()
+  return now.getHours() > 21 || (now.getHours() === 21 && now.getMinutes() >= 15)
+}
+
 export default function BookingCalendar({
   month,
   today,
@@ -58,6 +63,7 @@ export default function BookingCalendar({
   canGoPrev,
   canGoNext,
 }: BookingCalendarProps) {
+  const closed = isClosingTime()
   const cells = useMemo(() => buildCalendarGrid(month), [month])
   const monthLabel = `${MONTH_NAMES[month.getMonth()]} ${month.getFullYear()}`
 
@@ -103,11 +109,15 @@ export default function BookingCalendar({
           const isCurrentMonth = date.getMonth() === month.getMonth()
           const dayData = CALENDAR_MAP.get(dateStr)
           const isToday = dateStr === today
+          const isPastDate = dateStr < today
+          const isTodayClosed = isToday && closed
           const isClickable =
             isCurrentMonth &&
             !!dayData &&
             dayData.status !== 'sold-out' &&
-            dayData.status !== 'off-sale'
+            dayData.status !== 'off-sale' &&
+            !isPastDate &&
+            !isTodayClosed
 
           return (
             <div
@@ -120,6 +130,7 @@ export default function BookingCalendar({
                 'relative border-b border-r border-[#991b1b]/20 min-h-[80px] sm:min-h-[105px] p-1.5 sm:p-2 flex flex-col gap-1 select-none bg-white transition-all duration-150',
                 isClickable && 'cursor-pointer hover:bg-[#fff8e7] hover:border-[#fcd34d]/60 hover:shadow-[inset_0_0_0_2px_#fcd34d]',
                 !isCurrentMonth && 'opacity-30',
+                (isPastDate || isTodayClosed) && isCurrentMonth && 'opacity-40 bg-gray-50',
               )}
             >
               {/* T7/CN badge — đánh dấu cuối tuần giá cao hơn */}

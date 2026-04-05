@@ -6,10 +6,10 @@ import { motion } from "framer-motion";
 import { AnimatedText } from "@/components/ui/animated-text";
 import { ArrowRight } from "lucide-react";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
-import { useBooking } from "@/providers/booking-context";
+import { useRouter } from "next/navigation";
 
 export default function HeroBlock() {
-  const { open } = useBooking();
+  const router = useRouter();
   const { t, i18n } = useTranslation('common');
   const currentLanguage = i18n.resolvedLanguage ?? i18n.language;
   const [offset, setOffset] = useState(0);
@@ -90,7 +90,7 @@ export default function HeroBlock() {
             <motion.button
               whileHover={{ scale: prefersReducedMotion ? 1 : 1.02 }}
               whileTap={{ scale: prefersReducedMotion ? 1 : 0.98 }}
-              onClick={open}
+              onClick={() => router.push('/booking')}
               className="group relative mt-6 px-8 py-4 bg-white/20 backdrop-blur-lg border border-white/30 text-white rounded-full overflow-hidden transition-all duration-300 hover:bg-yellow-500 hover:border-yellow-500 hover:text-black hover:shadow-[0_0_30px_rgba(234,179,8,0.6)]"
             >
               <span className="relative z-10 flex items-center gap-3 font-bold tracking-wider text-sm md:text-base uppercase drop-shadow-sm">
