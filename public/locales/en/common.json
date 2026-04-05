@@ -91,36 +91,40 @@
   },
   "pricing": {
     "subtitle": "PRICE LIST",
-    "title": "Price",
+    "title": "PRICING",
     "room1": {
       "name": "LANDS OF VIETNAM",
       "subtitle": "Discover Provincial Cultures",
-      "timings": ["60 minutes", "120 minutes"],
-      "regular": [159, 259],
-      "student": [129, 199],
+      "timings": ["Price", "Local student"],
+      "regular": [199, 179],
+      "student": [229, 209],
       "schedule": "Mon - Before 17:00 Fri\nFrom 17:00 Fri, Sat, Sun"
     },
     "room2": {
       "name": "LIVING VILLAGES",
       "subtitle": "Rural Vietnam & Folk Traditions",
-      "timings": ["60 minutes", "120 minutes"],
-      "regular": [139, 239],
-      "student": [99, 179],
+      "timings": ["Price", "Local student"],
+      "regular": [219, 199],
+      "student": [249, 229],
       "schedule": "Mon - Before 17:00 Fri\nFrom 17:00 Fri, Sat, Sun"
     },
     "room3": {
       "name": "TRADITIONAL CRAFTS",
       "subtitle": "Explore Vietnamese Craft Villages",
-      "timings": ["60 minutes", "120 minutes"],
-      "regular": [149, 249],
-      "student": [119, 189],
+      "timings": ["Price", "Local student"],
+      "regular": [149, 129],
+      "student": [179, 159],
       "schedule": "Mon - Before 17:00 Fri\nFrom 17:00 Fri, Sat, Sun"
     },
-    "audience": "Audience",
-    "regular": "Regular",
-    "student": "Student",
+    "audience": "Schedule",
+    "regular": "Mon - Before 17:00 Fri",
+    "student": "From 17:00 Fri, Sat, Sun",
     "scheduleLabel": "Schedule:",
-    "note": "* Prices may vary during holidays and special events"
+    "notes": [
+      "The student discount applies only to eligible student groups and is not valid after 9:00 PM.",
+      "Promotions cannot be combined.",
+      "A surcharge of 20,000 VND per player applies after 9:00 PM."
+    ]
   },
   "reviews": {
     "title": "CUSTOMER FEEDBACK",

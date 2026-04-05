@@ -7,6 +7,7 @@ import {
   CALENDAR_MAP,
   STATUS_BADGE_COLORS,
   STATUS_LABELS,
+  STATUS_TEXT_COLORS,
   formatPrice,
 } from "../data/booking-data"
 
@@ -116,8 +117,8 @@ export default function BookingCalendar({
               onClick={() => isClickable && onDateSelect(dateStr)}
               onKeyDown={(e) => e.key === 'Enter' && isClickable && onDateSelect(dateStr)}
               className={cn(
-                'relative border-b border-r border-[#991b1b]/20 min-h-[80px] sm:min-h-[105px] p-1.5 sm:p-2 flex flex-col gap-1 select-none',
-                isClickable && 'cursor-pointer hover:bg-white/[0.07] hover:ring-1 hover:ring-inset hover:ring-[#fcd34d]/25 transition-all duration-150',
+                'relative border-b border-r border-[#991b1b]/20 min-h-[80px] sm:min-h-[105px] p-1.5 sm:p-2 flex flex-col gap-1 select-none bg-white',
+                isClickable && 'cursor-pointer hover:bg-[#fcd34d]/10 hover:ring-1 hover:ring-inset hover:ring-[#fcd34d]/40 transition-all duration-150',
                 !isCurrentMonth && 'opacity-30',
               )}
             >
@@ -139,7 +140,7 @@ export default function BookingCalendar({
                 ) : (
                   <span className={cn(
                     'text-xs sm:text-sm font-semibold',
-                    isCurrentMonth ? 'text-[#fef3c7]' : 'text-[#fef3c7]/40'
+                    isCurrentMonth ? 'text-[#7f1d1d]' : 'text-[#7f1d1d]/40'
                   )}>
                     {date.getDate()}
                   </span>
@@ -149,12 +150,13 @@ export default function BookingCalendar({
               {/* Price + status */}
               {dayData && isCurrentMonth && (
                 <>
-                  <p className="text-[9px] sm:text-[10px] text-[#fef3c7]/60 text-center leading-tight">
+                  <p className="text-[9px] sm:text-[10px] text-gray-500 text-center leading-tight">
                     TỪ {formatPrice(dayData.basePrice)}
                   </p>
                   <div className={cn(
-                    'text-[9px] sm:text-[10px] text-white text-center py-0.5 rounded font-semibold mt-auto',
-                    STATUS_BADGE_COLORS[dayData.status]
+                    'text-[9px] sm:text-[10px] text-center py-0.5 rounded font-semibold mt-auto',
+                    STATUS_BADGE_COLORS[dayData.status],
+                    STATUS_TEXT_COLORS[dayData.status]
                   )}>
                     {STATUS_LABELS[dayData.status]}
                   </div>

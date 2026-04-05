@@ -1,7 +1,7 @@
 'use client'
 
 import { useTranslation } from "react-i18next"
-import { Clock, GraduationCap, Users } from "lucide-react"
+import { Clock } from "lucide-react"
 import { AnimatedText } from "@/components/ui/animated-text"
 import { cn } from "@/lib/utils"
 import { useBooking } from "@/providers/booking-context"
@@ -20,7 +20,7 @@ export default function PricingBlock() {
       regularKey: 'pricing.room1.regular',
       studentKey: 'pricing.room1.student',
       scheduleKey: 'pricing.room1.schedule',
-      recommended: false,
+      recommended: true,
     },
     {
       id: 2,
@@ -30,7 +30,7 @@ export default function PricingBlock() {
       regularKey: 'pricing.room2.regular',
       studentKey: 'pricing.room2.student',
       scheduleKey: 'pricing.room2.schedule',
-      recommended: true,
+      recommended: false,
     },
     {
       id: 3,
@@ -92,7 +92,7 @@ export default function PricingBlock() {
                 {/* Recommended Badge */}
                 {room.recommended && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-yellow-500 text-black text-[10px] font-black uppercase tracking-widest rounded-full">
-                    Popular
+                    BEST-SELLER
                   </div>
                 )}
 
@@ -129,21 +129,21 @@ export default function PricingBlock() {
                     <div>{Array.isArray(timings) ? timings[1] : ''}</div>
                   </div>
 
-                  {/* Regular Price Row */}
+                  {/* Mon-Fri before 17:00 Row */}
                   <div className="grid grid-cols-3 items-center py-4 border-t border-white/5 hover:bg-white/5 transition-colors px-2 -mx-2 rounded">
-                    <div className="flex items-center gap-2 text-white font-bold text-sm text-left">
-                      <Users className="w-4 h-4 text-yellow-500" />
-                      <span>{t('pricing.regular') || "Người lớn"}</span>
+                    <div className="flex items-center gap-2 text-white font-bold text-xs text-left leading-tight">
+                      <Clock className="w-4 h-4 text-yellow-500 shrink-0" />
+                      <span>{t('pricing.regular')}</span>
                     </div>
                     <div className="text-center text-xl font-bold text-white tabular-nums">{Array.isArray(regular) ? regular[0] : ''}K</div>
                     <div className="text-center text-xl font-bold text-yellow-500 tabular-nums">{Array.isArray(regular) ? regular[1] : ''}K</div>
                   </div>
 
-                  {/* Student Price Row */}
+                  {/* After 17:00 Fri / Weekend Row */}
                   <div className="grid grid-cols-3 items-center py-4 border-t border-white/5 hover:bg-white/5 transition-colors px-2 -mx-2 rounded">
-                    <div className="flex items-center gap-2 text-white font-bold text-sm text-left">
-                      <GraduationCap className="w-4 h-4 text-yellow-500" />
-                      <span>{t('pricing.student') || "HSSV"}</span>
+                    <div className="flex items-center gap-2 text-white font-bold text-xs text-left leading-tight">
+                      <Clock className="w-4 h-4 text-yellow-500 shrink-0" />
+                      <span>{t('pricing.student')}</span>
                     </div>
                     <div className="text-center text-xl font-bold text-white tabular-nums">{Array.isArray(student) ? student[0] : ''}K</div>
                     <div className="text-center text-xl font-bold text-yellow-500 tabular-nums">{Array.isArray(student) ? student[1] : ''}K</div>
@@ -182,11 +182,14 @@ export default function PricingBlock() {
 
         {/* Note Footer */}
         <div className="text-center mt-16 border-t border-white/5 pt-8 max-w-2xl mx-auto">
-          <p className="text-white/40 text-sm font-light italic mb-8">
-            <AnimatedText animationType="fade" dependencyKey={`${currentLanguage}-pricing-note`}>
-              * {t('pricing.note') || "Giá vé áp dụng cho một người chơi. Vui lòng mang thẻ HSSV để nhận ưu đãi."}
-            </AnimatedText>
-          </p>
+          <ul className="text-white/50 text-sm font-light text-left inline-block mb-8 space-y-2">
+            {(t('pricing.notes', { returnObjects: true }) as string[]).map((note, i) => (
+              <li key={i} className="flex items-start gap-2">
+                <span className="text-yellow-500 mt-0.5 shrink-0">–</span>
+                <span>{note}</span>
+              </li>
+            ))}
+          </ul>
           <button
             onClick={open}
             className="px-12 py-4 bg-yellow-500 text-black font-black uppercase tracking-widest hover:bg-yellow-400 transition-colors rounded-sm text-sm"

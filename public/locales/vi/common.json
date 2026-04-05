@@ -94,35 +94,38 @@
     "subtitle": "BẢNG GIÁ DỊCH VỤ",
     "title": "BẢNG GIÁ",
     "room1": {
-
       "name": "MIỀN ĐẤT VIỆT",
       "subtitle": "Khám Phá Văn Hoá Các Tỉnh Thành",
-      "timings": ["60 phút", "120 phút"],
-      "regular": [159, 259],
-      "student": [129, 199],
+      "timings": ["GIÁ GỐC", "HSSV"],
+      "regular": [199, 179],
+      "student": [229, 209],
       "schedule": "Thứ 2 - Trước 17:00 Thứ 6\nSau 17:00 Thứ 6, Thứ 7, Chủ nhật"
     },
     "room2": {
       "name": "LÀNG VIỆT SỐNG",
       "subtitle": "Làng Quê Với Tín Ngưỡng Dân Gian",
-      "timings": ["60 phút", "120 phút"],
-      "regular": [139, 239],
-      "student": [99, 179],
+      "timings": ["GIÁ GỐC", "HSSV"],
+      "regular": [219, 199],
+      "student": [249, 229],
       "schedule": "Thứ 2 - Trước 17:00 Thứ 6\nSau 17:00 Thứ 6, Thứ 7, Chủ nhật"
     },
     "room3": {
       "name": "LÀNG NGHỀ TRUYỀN THỐNG",
       "subtitle": "Khám Phá Các Làng Nghề Việt Nam",
-      "timings": ["60 phút", "120 phút"],
-      "regular": [149, 249],
-      "student": [119, 189],
+      "timings": ["GIÁ GỐC", "HSSV"],
+      "regular": [149, 129],
+      "student": [179, 159],
       "schedule": "Thứ 2 - Trước 17:00 Thứ 6\nSau 17:00 Thứ 6, Thứ 7, Chủ nhật"
     },
-    "audience": "Đối tượng",
-    "regular": "Thường",
-    "student": "Học sinh",
+    "audience": "Khung giờ",
+    "regular": "Thứ 2 - Trước 17:00 Thứ 6",
+    "student": "Sau 17:00 Thứ 6, Thứ 7, CN",
     "scheduleLabel": "Lịch áp dụng:",
-    "note": "* Giá có thể thay đổi vào các dịp lễ và sự kiện đặc biệt"
+    "notes": [
+      "Ưu đãi HSSV áp dụng cho nhóm khách HSSV trên, không áp dụng sau 21:00",
+      "Các ưu đãi không cộng gộp",
+      "Sau 21:00: phụ thu 20.000đ / người chơi"
+    ]
   },
   "reviews": {
     "title": "FEEDBACK KHÁCH HÀNG",
