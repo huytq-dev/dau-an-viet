@@ -86,9 +86,28 @@ export function getSlotPrice(roomId: string, dateStr: string, timeStr: string): 
   return base + surcharge
 }
 
-// ─── Weekly schedule (8 slots/room, 90 phút mỗi slot) ───────────────────────
+// ─── Weekly schedule ─────────────────────────────────────────────────────────
+// T2–T5: 5 slot (14:15 → 22:45)
+// T6–CN: 8 slot (09:00 → 22:45)
 
-const ROOM_SLOTS: Record<string, { start: string; end: string }[]> = {
+const ROOM_SLOTS_WEEKDAY: Record<string, { start: string; end: string }[]> = {
+  'mien-dat-viet': [
+    { start: '14:15', end: '15:45' },
+    { start: '16:00', end: '17:30' },
+    { start: '17:45', end: '19:15' },
+    { start: '19:30', end: '21:00' },
+    { start: '21:15', end: '22:45' },
+  ],
+  'lang-viet-song': [
+    { start: '14:25', end: '15:55' },
+    { start: '16:10', end: '17:40' },
+    { start: '17:55', end: '19:25' },
+    { start: '19:40', end: '21:10' },
+    { start: '21:25', end: '22:55' },
+  ],
+}
+
+const ROOM_SLOTS_WEEKEND: Record<string, { start: string; end: string }[]> = {
   'mien-dat-viet': [
     { start: '09:00', end: '10:30' },
     { start: '10:45', end: '12:15' },
@@ -122,6 +141,9 @@ const STATUS_CYCLE: AvailabilityStatus[] = [
 
 export function getTimeSlotsForDate(dateStr: string): RoomSchedule[] {
   const dayNum = parseInt(dateStr.split('-')[2], 10)
+  const dayOfWeek = new Date(dateStr).getDay() // 0=CN, 1=T2...6=T7
+  const isWeekend = dayOfWeek === 0 || dayOfWeek === 5 || dayOfWeek === 6 // T6, T7, CN
+  const ROOM_SLOTS = isWeekend ? ROOM_SLOTS_WEEKEND : ROOM_SLOTS_WEEKDAY
 
   return Object.entries(ROOM_SLOTS).map(([roomId, slots]) => ({
     roomId,
