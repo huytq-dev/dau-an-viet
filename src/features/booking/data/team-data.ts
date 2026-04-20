@@ -59,9 +59,7 @@ export const ROOM_INFO: Record<string, { name: string; image: string }> = {
 
 // ─── Pricing notes ───────────────────────────────────────────────────────────
 export const PRICING_NOTES = [
-  'Ưu đãi HSSV áp dụng cho nhóm khách HSSV, không áp dụng sau 21:00',
-  'Phụ thu 20.000đ/người chơi sau 21:00',
-  'Các ưu đãi không cộng gộp',
+  'Đối với khách hàng là học sinh sinh viên, vui lòng mang theo thẻ học sinh/sinh viên còn hiệu lực khi check-in, khách hàng sẽ được hoàn lại phần chênh lệch tương ứng với mức giá ưu đãi dành cho học sinh/sinh viên.',
 ]
 
 // ─── Team/player mock data ────────────────────────────────────────────────────

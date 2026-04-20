@@ -1,8 +1,8 @@
 "use client"
 
-import { useMemo } from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { ChevronLeft, ChevronRight } from "lucide-react"
+import { useMemo } from "react"
 import {
   CALENDAR_MAP,
   STATUS_BADGE_COLORS,
@@ -180,7 +180,7 @@ export default function BookingCalendar({
 
       {/* Footer */}
       <div className="bg-[#5a0f0f] py-2 text-center text-[10px] text-[#fef3c7]/40">
-        Powered by Đầu Chân Việt
+        Powered by Dấu Chân Việt
       </div>
     </div>
   )

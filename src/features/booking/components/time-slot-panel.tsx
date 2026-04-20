@@ -323,10 +323,6 @@ export default function TimeSlotPanel({
           </AnimatePresence>
         </div>
 
-        {/* Footer */}
-        <div className="px-4 py-3 border-t border-gray-200 bg-white text-center text-xs text-gray-500 shrink-0">
-          Đặt vé cho <strong className="text-gray-700">{ticketCount} người</strong> · Giá đã bao gồm phí đặt chỗ
-        </div>
       </DialogContent>
     </Dialog>
   )

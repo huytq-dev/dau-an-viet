@@ -1,10 +1,10 @@
 'use client'
 
-import { useTranslation } from "react-i18next"
-import { useRouter } from "next/navigation"
-import { Clock } from "lucide-react"
 import { AnimatedText } from "@/components/ui/animated-text"
 import { cn } from "@/lib/utils"
+import { Clock } from "lucide-react"
+import { useRouter } from "next/navigation"
+import { useTranslation } from "react-i18next"
 
 export default function PricingBlock() {
   const { t, i18n } = useTranslation()
@@ -32,16 +32,16 @@ export default function PricingBlock() {
       scheduleKey: 'pricing.room1.schedule',
       recommended: true,
     },
-    {
-      id: 3,
-      nameKey: 'pricing.room3.name',
-      subtitleKey: 'pricing.room3.subtitle',
-      timingsKey: 'pricing.room3.timings',
-      regularKey: 'pricing.room3.regular',
-      studentKey: 'pricing.room3.student',
-      scheduleKey: 'pricing.room3.schedule',
-      recommended: false,
-    },
+    // {
+    //   id: 3,
+    //   nameKey: 'pricing.room3.name',
+    //   subtitleKey: 'pricing.room3.subtitle',
+    //   timingsKey: 'pricing.room3.timings',
+    //   regularKey: 'pricing.room3.regular',
+    //   studentKey: 'pricing.room3.student',
+    //   scheduleKey: 'pricing.room3.schedule',
+    //   recommended: false,
+    // },
   ]
 
   return (
@@ -73,7 +73,7 @@ export default function PricingBlock() {
         </div>
 
         {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start max-w-3xl mx-auto w-full">
           {pricingRooms.map((room) => {
             const timings = t(room.timingsKey, { returnObjects: true }) as string[]
             const regular = t(room.regularKey, { returnObjects: true }) as number[]

@@ -1,7 +1,7 @@
 "use client"
 
 import { useTranslation } from "react-i18next"
-import { MapPin, Phone, Mail, Clock, Facebook, MessageCircle } from "lucide-react"
+import { MapPin, Phone, Mail, Clock, Facebook } from "lucide-react"
 import { AnimatedText } from "@/components/ui/animated-text"
 
 export default function ContactBlock() {
@@ -59,7 +59,7 @@ export default function ContactBlock() {
                     <p className="text-xs font-bold text-[#4A3728]/60 uppercase tracking-widest mb-1">
                       {t(item.label)}
                     </p>
-                    <p className="text-[#333333] text-sm font-bold leading-relaxed">
+                    <p className="text-[#333333] text-sm font-bold leading-relaxed whitespace-pre-line">
                       <AnimatedText animationType="fade" dependencyKey={`${currentLanguage}-value-${index}`}>
                         {t(item.value)}
                       </AnimatedText>
@@ -88,13 +88,15 @@ export default function ContactBlock() {
                 <span>Facebook</span>
               </a>
               <a
-                href="https://zalo.me/0905316737"
+                href="https://www.tiktok.com/@dauchanvietmonopolyhub"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 py-3 bg-[#0068FF] hover:bg-[#0051c9] text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 rounded-sm transition-colors shadow-lg shadow-[#0068FF]/20"
+                className="flex-1 py-3 bg-[#010101] hover:bg-[#2b2b2b] text-white text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 rounded-sm transition-colors shadow-lg shadow-black/20"
               >
-                <MessageCircle className="w-4 h-4" />
-                <span>Zalo</span>
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/>
+                </svg>
+                <span>TikTok</span>
               </a>
             </div>
           </div>

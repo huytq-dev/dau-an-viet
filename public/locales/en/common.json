@@ -66,8 +66,7 @@
       "description": "Each time you play, choose one of 3 themes: Lands of Vietnam, Living Villages, or Traditional Crafts. Same rules but different settings and challenges.",
       "details": [
         "Lands of Vietnam: Explore provinces and cultural regions",
-        "Living Villages: Experience rural Vietnam with folk traditions",
-        "Traditional Crafts: Discover traditional craft villages"
+        "Living Villages: Experience rural Vietnam with folk traditions"
       ]
     },
     "step2": {
@@ -121,9 +120,10 @@
     "student": "From 17:00 Fri, Sat, Sun",
     "scheduleLabel": "Schedule:",
     "notes": [
-      "The student discount applies only to eligible student groups and is not valid after 9:00 PM.",
-      "Promotions cannot be combined.",
-      "A surcharge of 20,000 VND per player applies after 9:00 PM."
+      "Minimum 4 players per room.",
+      "Student discount applies only to groups of 4 or more and before 9:00 PM.",
+      "A surcharge of 20,000 VND per player applies after 9:00 PM.",
+      "Promotions cannot be combined."
     ]
   },
   "reviews": {
@@ -168,7 +168,7 @@
     "facility2": "Facility 2",
     "hotlineZalo": "Hotline / Zalo",
     "workingHours": "Working Hours",
-    "workingHoursValue": "09:00 - 23:00 (Daily)",
+    "workingHoursValue": "14:25 - 10:45 (Mon - Thu)\n9:00 - 23:00 (Fri - Sun)",
     "emailLabel": "Email",
     "facebook": "Facebook",
     "zaloChat": "Zalo Chat"
@@ -198,7 +198,6 @@
     "error": "An error occurred. Please try again or contact us directly via hotline.",
     "roomOptions": {
       "lang-viet-song": "Living Villages",
-      "lang-nghe-truyen-thong": "Traditional Crafts",
       "mien-dat-viet": "Lands of Vietnam"
     },
     "validation": {

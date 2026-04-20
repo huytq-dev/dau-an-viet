@@ -52,6 +52,8 @@ export default function TeamSelectionPage({ date, roomId, time, teams }: Props) 
   const router = useRouter()
   const [cart, setCart] = useState<CartItem[]>([])
   const [confirm, setConfirm] = useState<ConfirmTarget | null>(null)
+  const [showPolicy, setShowPolicy] = useState(false)
+  const [policyAccepted, setPolicyAccepted] = useState(false)
 
   const roomInfo = ROOM_INFO[roomId] ?? {
     name: 'Phòng trải nghiệm',
@@ -200,7 +202,7 @@ export default function TeamSelectionPage({ date, roomId, time, teams }: Props) 
       {/* Pricing notes */}
       <div className="rounded-xl bg-amber-50 border border-amber-100 p-3 space-y-1">
         {PRICING_NOTES.map((note, i) => (
-          <p key={i} className="text-[10px] text-amber-700 leading-relaxed">· {note}</p>
+          <p key={i} className="text-sm text-amber-700 leading-relaxed">· {note}</p>
         ))}
       </div>
     </>
@@ -330,10 +332,11 @@ export default function TeamSelectionPage({ date, roomId, time, teams }: Props) 
           <div className="p-3 lg:p-4 border-t border-gray-100 shrink-0">
             <button
               disabled={cart.length === 0}
+              onClick={() => { if (cart.length > 0) { setPolicyAccepted(false); setShowPolicy(true) } }}
               className={cn(
                 'w-full py-3 lg:py-3.5 rounded-full font-bold text-sm transition-all',
                 cart.length > 0
-                  ? 'bg-[#991b1b] text-white hover:bg-[#7f1d1d] shadow-md'
+                  ? 'bg-[#991b1b] text-white hover:bg-[#7f1d1d] shadow-md cursor-pointer'
                   : 'bg-gray-100 text-gray-400 cursor-not-allowed'
               )}
             >
@@ -370,12 +373,129 @@ export default function TeamSelectionPage({ date, roomId, time, teams }: Props) 
             </div>
           </div>
           <div className="px-4 py-3">
-            <button className="w-full py-3 rounded-full bg-[#991b1b] text-white font-bold text-sm hover:bg-[#7f1d1d] transition-colors">
+            <button
+              onClick={() => { setPolicyAccepted(false); setShowPolicy(true) }}
+              className="w-full py-3 rounded-full bg-[#991b1b] text-white font-bold text-sm hover:bg-[#7f1d1d] transition-colors cursor-pointer"
+            >
               Tiếp tục · {formatPrice(totalPrice)}
             </button>
           </div>
         </div>
       )}
+
+      {/* ── Policy Modal ─────────────────────────────────────────────────────── */}
+      <AnimatePresence>
+        {showPolicy && (
+          <>
+            <motion.div
+              key="policy-backdrop"
+              className="fixed inset-0 z-50 bg-black/60"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={() => setShowPolicy(false)}
+            />
+            <motion.div
+              key="policy-modal"
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none"
+              initial={{ opacity: 0, scale: 0.94, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.94, y: 20 }}
+              transition={{ type: 'spring', stiffness: 360, damping: 28 }}
+            >
+              <div
+                className="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden pointer-events-auto flex flex-col max-h-[90vh]"
+                onClick={e => e.stopPropagation()}
+              >
+                {/* Header */}
+                <div className="bg-[#7f1d1d] px-6 py-5 shrink-0">
+                  <h2 className="text-white font-black text-lg tracking-wide">Các điều khoản & Chính sách</h2>
+                  <p className="text-[#fcd34d] text-sm font-semibold mt-0.5">Dấu Chân Việt</p>
+                </div>
+
+                {/* Scrollable content */}
+                <div className="flex-1 overflow-y-auto px-6 py-5 space-y-5 text-sm text-gray-700 leading-relaxed">
+                  <div>
+                    <h3 className="font-bold text-[#7f1d1d] mb-2">1. Điều kiện mở phiên chơi</h3>
+                    <p>Mỗi phiên chơi cần tối thiểu 4 người tham gia, chia thành 2 đội, mỗi đội ít nhất 2 người, để hai đội đối đầu với nhau và phiên chơi có thể vận hành.</p>
+                    <p className="mt-2">Nếu nhóm bạn chưa đủ người, bạn có thể tìm thêm đồng đội tại đây:{' '}
+                      <a href="https://www.facebook.com/groups/915491021325762" target="_blank" rel="noopener noreferrer" className="text-[#991b1b] font-semibold underline underline-offset-2">facebook.com/groups/...</a>
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="font-bold text-[#7f1d1d] mb-2">2. Kiểm tra số lượng người chơi trước giờ bắt đầu</h3>
+                    <p>Nếu chưa đủ tối thiểu 4 người trước 90 phút phiên chơi bắt đầu, hoặc có nhóm hủy đột xuất sát giờ chơi, chúng tôi sẽ liên hệ hỗ trợ khách hàng lựa chọn:</p>
+                    <ul className="mt-2 space-y-1 pl-4 list-disc">
+                      <li>Chuyển sang khung giờ khác trong cùng ngày (hoặc gần nhất) đã đủ số lượng người chơi</li>
+                      <li>Dời lịch sang ngày khác phù hợp hơn</li>
+                    </ul>
+                    <p className="mt-2">Nếu khách hàng không thể sắp xếp theo các phương án trên, Dấu Chân Việt sẽ:</p>
+                    <ul className="mt-2 space-y-1 pl-4 list-disc">
+                      <li>Hoàn 100% số tiền đã thanh toán</li>
+                      <li>Tặng voucher giảm 15% cho lần đặt tiếp theo như lời xin lỗi và bù đắp trải nghiệm.</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="font-bold text-[#7f1d1d] mb-2">3. Chính sách hủy và đổi lịch</h3>
+                    <ul className="space-y-1 pl-4 list-disc">
+                      <li>Thông báo hủy trước ít nhất <strong>48 giờ</strong>: hoàn 100% giá trị vé.</li>
+                      <li>Thông báo đổi lịch trước ít nhất <strong>24 giờ</strong>: đổi sang khung giờ khác miễn phí.</li>
+                      <li>Hủy hoặc đổi lịch trong vòng 24 giờ trước giờ bắt đầu: không hỗ trợ hoàn tiền hoặc đổi lịch.</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="font-bold text-[#7f1d1d] mb-2">4. Hoàn tiền đối với ưu đãi học sinh, sinh viên</h3>
+                    <p>Đối với khách hàng mang theo thẻ học sinh/sinh viên còn hiệu lực khi check-in, khách hàng sẽ được hoàn lại phần chênh lệch tương ứng với mức giá ưu đãi.</p>
+                    <p className="mt-2 font-semibold text-amber-700">Lưu ý: Ưu đãi học sinh sinh viên chỉ áp dụng cho nhóm từ 4 người trở lên.</p>
+                  </div>
+                </div>
+
+                {/* Footer */}
+                <div className="shrink-0 px-6 py-4 border-t border-gray-100 space-y-3 bg-gray-50">
+                  {/* Toggle confirm button */}
+                  <button
+                    onClick={() => setPolicyAccepted(p => !p)}
+                    className={cn(
+                      'w-full py-3.5 px-4 rounded-xl font-semibold text-sm text-left transition-all duration-200 border-2',
+                      policyAccepted
+                        ? 'bg-[#991b1b] border-[#991b1b] text-white'
+                        : 'bg-white border-[#991b1b]/30 text-gray-600 hover:border-[#991b1b]'
+                    )}
+                  >
+                    <span className={cn('mr-2', policyAccepted ? 'text-white' : 'text-[#991b1b]')}>
+                      {policyAccepted ? '✓' : '○'}
+                    </span>
+                    Tôi xác nhận đã đọc, hiểu và đồng ý với các điều khoản và chính sách của Dấu Chân Việt
+                  </button>
+
+                  {/* Proceed button */}
+                  <button
+                    disabled={!policyAccepted}
+                    onClick={() => {
+                      sessionStorage.setItem('checkout_cart', JSON.stringify(cart))
+                      sessionStorage.setItem('checkout_meta', JSON.stringify({ date, roomId, time, roomName: roomInfo.name, roomImage: roomInfo.image, totalPrice }))
+                      setShowPolicy(false)
+                      router.push('/booking/checkout')
+                    }}
+                    className={cn(
+                      'w-full py-3.5 rounded-xl font-bold text-sm transition-all duration-200 border-2',
+                      policyAccepted
+                        ? 'bg-white border-[#991b1b] text-[#991b1b] hover:bg-[#991b1b]/5 cursor-pointer'
+                        : 'bg-gray-100 border-gray-200 text-gray-400 cursor-not-allowed'
+                    )}
+                  >
+                    Tiếp tục thanh toán
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
 
       {/* ── Confirm Remove Modal ─────────────────────────────────────────────── */}
       <AnimatePresence>

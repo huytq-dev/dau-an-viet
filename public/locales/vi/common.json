@@ -67,8 +67,7 @@
       "description": "Mỗi lần chơi, bạn có thể chọn 1 trong 3 chủ đề: Miền Đất Việt, Làng Việt Sống, hoặc Làng Nghề Truyền Thống. Cùng luật chơi nhưng khác bối cảnh và thử thách.",
       "details": [
         "Miền Đất Việt: Hành trình khám phá các vùng đất và tỉnh thành nổi bật",
-        "Làng Việt Sống: Trải nghiệm làng quê Việt xưa với tín ngưỡng dân gian",
-        "Làng Nghề: Khám phá các làng nghề truyền thống Việt Nam"
+        "Làng Việt Sống: Trải nghiệm làng quê Việt xưa với tín ngưỡng dân gian"
       ]
     },
     "step2": {
@@ -122,9 +121,10 @@
     "student": "Sau 17:00 Thứ 6, Thứ 7, CN",
     "scheduleLabel": "Lịch áp dụng:",
     "notes": [
-      "Ưu đãi HSSV áp dụng cho nhóm khách HSSV trên, không áp dụng sau 21:00",
-      "Các ưu đãi không cộng gộp",
-      "Sau 21:00: phụ thu 20.000đ / người chơi"
+      "Tối thiểu 4 người chơi/ phòng",
+      "Giá cho học sinh - sinh viên chỉ áp dụng cho nhóm từ 4 người trở lên và trước 21h00",
+      "Sau 21:00: phụ thu 20.000đ / người chơi",
+      "Các ưu đãi không cộng gộp"
     ]
   },
   "reviews": {
@@ -145,7 +145,7 @@
       { "name": "Phương Linh", "rating": 5, "text": "Thiết kế bàn chơi rất đẹp và chi tiết. Mỗi ô đất đều có câu chuyện riêng, giúp mình hiểu thêm về lịch sử và văn hóa các vùng miền. Cảm ơn đội ngũ đã tạo ra trải nghiệm tuyệt vời này!" },
       { "name": "Văn Hùng", "rating": 5, "text": "Đưa con đi chơi và cả gia đình đều thích. Trẻ em học được nhiều điều bổ ích về văn hóa Việt Nam, còn người lớn thì được giải trí và thư giãn. Rất đáng giá!" },
       { "name": "Thùy Dương", "rating": 5, "text": "Lần đầu tiên thấy một mô hình Monopoly được đầu tư kỹ lưỡng như vậy. Từ không gian đến cách tổ chức đều rất chuyên nghiệp. Sẽ quay lại nhiều lần!" },
-      { "name": "Bảo Long", "rating": 5, "text": "Chủ đề Làng Nghề Truyền Thống giúp mình hiểu thêm về các nghề thủ công của Việt Nam. Vừa chơi vừa học, rất thú vị. Nhân viên cũng rất am hiểu và giải thích rõ ràng." },
+      { "name": "Bảo Long", "rating": 5, "text": "Các chủ đề ở Dấu Chân Việt giúp mình hiểu thêm về các nghề thủ công của Việt Nam. Vừa chơi vừa học, rất thú vị. Nhân viên cũng rất am hiểu và giải thích rõ ràng." },
       { "name": "Hồng Nhung", "rating": 5, "text": "Không gian rộng rãi, thoáng mát. Trò chơi phù hợp với nhiều độ tuổi. Mình đi cùng nhóm bạn và tất cả đều có khoảng thời gian vui vẻ. Đặc biệt là giá cả rất hợp lý!" },
       { "name": "Quang Minh", "rating": 5, "text": "Đã chơi cả 3 chủ đề và mỗi chủ đề đều có điểm hay riêng. Miền Đất Việt giúp mình khám phá các tỉnh thành, còn Làng Việt Sống thì đưa mình về với văn hóa làng quê. Tuyệt vời!" },
       { "name": "Thanh Tâm", "rating": 5, "text": "Nhân viên rất nhiệt tình và chuyên nghiệp. Họ giải thích rõ ràng luật chơi và luôn sẵn sàng hỗ trợ khi cần. Không gian cũng rất đẹp và được trang trí cẩn thận." },
@@ -169,7 +169,7 @@
     "facility2": "Cơ sở 2",
     "hotlineZalo": "Hotline / Zalo",
     "workingHours": "Giờ mở cửa",
-    "workingHoursValue": "09:00 - 23:00 (Hằng ngày)",
+    "workingHoursValue": "14:25 - 10:45 (Thứ Hai - Thứ Năm)\n9:00 - 23:00 (Thứ Sáu - CN)",
     "emailLabel": "Email",
     "facebook": "Facebook",
     "zaloChat": "Zalo Chat"
@@ -199,7 +199,6 @@
     "error": "Có lỗi xảy ra. Vui lòng thử lại hoặc liên hệ trực tiếp qua hotline.",
     "roomOptions": {
       "lang-viet-song": "Làng Việt Sống",
-      "lang-nghe-truyen-thong": "Hơi Thở Làng Nghề",
       "mien-dat-viet": "Miền Đất Việt"
     },
     "validation": {

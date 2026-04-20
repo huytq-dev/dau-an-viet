@@ -29,12 +29,6 @@ export default function HomeFooter() {
               href="#"
               className="text-xs font-bold uppercase tracking-widest text-white/60 hover:text-yellow-500 transition-colors"
             >
-              Instagram
-            </a>
-            <a
-              href="#"
-              className="text-xs font-bold uppercase tracking-widest text-white/60 hover:text-yellow-500 transition-colors"
-            >
               Tiktok
             </a>
           </div>

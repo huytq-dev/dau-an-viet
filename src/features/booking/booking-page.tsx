@@ -1,7 +1,7 @@
 "use client"
 
-import { useState, useMemo } from "react"
 import { ChevronDown } from "lucide-react"
+import { useMemo, useState } from "react"
 import BookingCalendar from "./components/booking-calendar"
 import TimeSlotPanel from "./components/time-slot-panel"
 
@@ -54,14 +54,11 @@ export default function BookingPage() {
     <div className="min-h-screen bg-background pt-20 pb-16">
       <div className="container mx-auto px-4 py-8 max-w-5xl">
 
-        {/* Notice */}
-        <div className="text-center mb-8 space-y-1">
-          <p className="text-[#fef3c7]/80 text-sm">
-            Tất cả vé đã bao gồm phí đặt chỗ.
-          </p>
-          <p className="text-[#fef3c7]/50 text-sm italic">
-            Giá niêm yết là theo mỗi người.
-          </p>
+        {/* Title */}
+        <div className="text-center mb-8">
+          <h1 className="text-3xl sm:text-4xl font-black text-yellow-400 uppercase ">
+            ĐẶT LỊCH PHÒNG CHƠI
+          </h1>
         </div>
 
         {/* Selector row */}
