@@ -64,7 +64,7 @@
     "subtitle": "CÁCH CHƠI",
     "step1": {
       "title": "BƯỚC 1: CHỌN CHỦ ĐỀ BÀN CHƠI",
-      "description": "Mỗi lần chơi, bạn có thể chọn 1 trong 3 chủ đề: Miền Đất Việt, Làng Việt Sống, hoặc Làng Nghề Truyền Thống. Cùng luật chơi nhưng khác bối cảnh và thử thách.",
+      "description": "Mỗi lần chơi, bạn có thể chọn 1 trong 3 chủ đề: Miền Đất Việt, Làng Việt Sống. Cùng luật chơi nhưng khác bối cảnh và thử thách.",
       "details": [
         "Miền Đất Việt: Hành trình khám phá các vùng đất và tỉnh thành nổi bật",
         "Làng Việt Sống: Trải nghiệm làng quê Việt xưa với tín ngưỡng dân gian"
@@ -169,7 +169,7 @@
     "facility2": "Cơ sở 2",
     "hotlineZalo": "Hotline / Zalo",
     "workingHours": "Giờ mở cửa",
-    "workingHoursValue": "14:25 - 10:45 (Thứ Hai - Thứ Năm)\n9:00 - 23:00 (Thứ Sáu - CN)",
+    "workingHoursValue": "14:25 - 22:45 (Thứ Hai - Thứ Năm)\n9:00 - 23:00 (Thứ Sáu - CN)",
     "emailLabel": "Email",
     "facebook": "Facebook",
     "zaloChat": "Zalo Chat"

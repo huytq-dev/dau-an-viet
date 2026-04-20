@@ -63,7 +63,7 @@
     "subtitle": "PLAY",
     "step1": {
       "title": "STEP 1: CHOOSE A THEME",
-      "description": "Each time you play, choose one of 3 themes: Lands of Vietnam, Living Villages, or Traditional Crafts. Same rules but different settings and challenges.",
+      "description": "Each time you play, choose one of 3 themes: Lands of Vietnam, Living Villages. Same rules but different settings and challenges.",
       "details": [
         "Lands of Vietnam: Explore provinces and cultural regions",
         "Living Villages: Experience rural Vietnam with folk traditions"
@@ -168,7 +168,7 @@
     "facility2": "Facility 2",
     "hotlineZalo": "Hotline / Zalo",
     "workingHours": "Working Hours",
-    "workingHoursValue": "14:25 - 10:45 (Mon - Thu)\n9:00 - 23:00 (Fri - Sun)",
+    "workingHoursValue": "14:25 - 22:45 (Mon - Thu)\n9:00 - 23:00 (Fri - Sun)",
     "emailLabel": "Email",
     "facebook": "Facebook",
     "zaloChat": "Zalo Chat"
