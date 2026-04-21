@@ -78,10 +78,10 @@ export function getSlotPrice(roomId: string, dateStr: string, timeStr: string): 
   const surcharge = hasSurcharge(timeStr) ? 20 : 0
   let base: number
   if (roomId === 'lang-viet-song') {
-    base = peak ? 249 : 219
+    base = peak ? 279 : 239
   } else {
     // mien-dat-viet (default)
-    base = peak ? 229 : 199
+    base = peak ? 249 : 219
   }
   return base + surcharge
 }
@@ -161,11 +161,11 @@ export function getTimeSlotsForDate(dateStr: string): RoomSchedule[] {
 }
 
 // ─── Calendar data (giá hiển thị = giá thấp nhất trong ngày) ─────────────────
-// T2-T5: từ 199k | T6 (cả ngày từ 199k, peak từ 229k) | T7-CN: từ 229k
+// T2-T5: từ 219k | T6 (off-peak 219k, peak từ 249k) | T7-CN: từ 249k
 
 function calendarPrice(dateStr: string): number {
   const day = new Date(dateStr).getDay()
-  return day === 0 || day === 6 ? 229 : 199
+  return day === 0 || day === 6 ? 249 : 219
 }
 
 function calendarStatus(dateStr: string): AvailabilityStatus {
