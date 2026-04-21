@@ -96,16 +96,16 @@
       "name": "MIỀN ĐẤT VIỆT",
       "subtitle": "Khám Phá Văn Hoá Các Tỉnh Thành",
       "timings": ["GIÁ GỐC", "HSSV"],
-      "regular": [199, 179],
-      "student": [229, 209],
+      "regular": [219, 189],
+      "student": [249, 219],
       "schedule": "Thứ 2 - Trước 17:00 Thứ 6\nSau 17:00 Thứ 6, Thứ 7, Chủ nhật"
     },
     "room2": {
       "name": "LÀNG VIỆT SỐNG",
       "subtitle": "Làng Quê Với Tín Ngưỡng Dân Gian",
       "timings": ["GIÁ GỐC", "HSSV"],
-      "regular": [219, 199],
-      "student": [249, 229],
+      "regular": [239, 209],
+      "student": [279, 239],
       "schedule": "Thứ 2 - Trước 17:00 Thứ 6\nSau 17:00 Thứ 6, Thứ 7, Chủ nhật"
     },
     "room3": {

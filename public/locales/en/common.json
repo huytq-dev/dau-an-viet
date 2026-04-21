@@ -95,16 +95,16 @@
       "name": "LANDS OF VIETNAM",
       "subtitle": "Discover Provincial Cultures",
       "timings": ["Price", "Local student"],
-      "regular": [199, 179],
-      "student": [229, 209],
+      "regular": [219, 189],
+      "student": [249, 219],
       "schedule": "Mon - Before 17:00 Fri\nFrom 17:00 Fri, Sat, Sun"
     },
     "room2": {
       "name": "LIVING VILLAGES",
       "subtitle": "Rural Vietnam & Folk Traditions",
       "timings": ["Price", "Local student"],
-      "regular": [219, 199],
-      "student": [249, 229],
+      "regular": [239, 209],
+      "student": [279, 239],
       "schedule": "Mon - Before 17:00 Fri\nFrom 17:00 Fri, Sat, Sun"
     },
     "room3": {
