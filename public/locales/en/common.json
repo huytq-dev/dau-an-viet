@@ -97,7 +97,7 @@
       "timings": ["Price", "Local student"],
       "regular": [219, 189],
       "student": [249, 219],
-      "schedule": "Mon - Before 17:00 Fri\nFrom 17:00 Fri, Sat, Sun"
+      "schedule": "Mon - Before 17:00 Fri\nSat, Sun & from 17:00 Fri"
     },
     "room2": {
       "name": "LIVING VILLAGES",
@@ -105,7 +105,7 @@
       "timings": ["Price", "Local student"],
       "regular": [239, 209],
       "student": [279, 239],
-      "schedule": "Mon - Before 17:00 Fri\nFrom 17:00 Fri, Sat, Sun"
+      "schedule": "Mon - Before 17:00 Fri\nSat, Sun & from 17:00 Fri"
     },
     "room3": {
       "name": "TRADITIONAL CRAFTS",
@@ -113,11 +113,11 @@
       "timings": ["Price", "Local student"],
       "regular": [149, 129],
       "student": [179, 159],
-      "schedule": "Mon - Before 17:00 Fri\nFrom 17:00 Fri, Sat, Sun"
+      "schedule": "Mon - Before 17:00 Fri\nSat, Sun & from 17:00 Fri"
     },
     "audience": "Schedule",
     "regular": "Mon - Before 17:00 Fri",
-    "student": "From 17:00 Fri, Sat, Sun",
+    "student": "Sat, Sun & from 17:00 Fri",
     "scheduleLabel": "Schedule:",
     "notes": [
       "Minimum 4 players per room.",

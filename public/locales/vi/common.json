@@ -98,7 +98,7 @@
       "timings": ["GIÁ GỐC", "HSSV"],
       "regular": [219, 189],
       "student": [249, 219],
-      "schedule": "Thứ 2 - Trước 17:00 Thứ 6\nSau 17:00 Thứ 6, Thứ 7, Chủ nhật"
+      "schedule": "Thứ 2 - Trước 17:00 Thứ 6\nThứ 7, Chủ Nhật, sau 17:00 Thứ 6"
     },
     "room2": {
       "name": "LÀNG VIỆT SỐNG",
@@ -106,7 +106,7 @@
       "timings": ["GIÁ GỐC", "HSSV"],
       "regular": [239, 209],
       "student": [279, 239],
-      "schedule": "Thứ 2 - Trước 17:00 Thứ 6\nSau 17:00 Thứ 6, Thứ 7, Chủ nhật"
+      "schedule": "Thứ 2 - Trước 17:00 Thứ 6\nThứ 7, Chủ Nhật, sau 17:00 Thứ 6"
     },
     "room3": {
       "name": "LÀNG NGHỀ TRUYỀN THỐNG",
@@ -114,11 +114,11 @@
       "timings": ["GIÁ GỐC", "HSSV"],
       "regular": [149, 129],
       "student": [179, 159],
-      "schedule": "Thứ 2 - Trước 17:00 Thứ 6\nSau 17:00 Thứ 6, Thứ 7, Chủ nhật"
+      "schedule": "Thứ 2 - Trước 17:00 Thứ 6\nThứ 7, Chủ Nhật, sau 17:00 Thứ 6"
     },
     "audience": "Khung giờ",
     "regular": "Thứ 2 - Trước 17:00 Thứ 6",
-    "student": "Sau 17:00 Thứ 6, Thứ 7, CN",
+    "student": "Thứ 7, Chủ Nhật, sau 17:00 Thứ 6",
     "scheduleLabel": "Lịch áp dụng:",
     "notes": [
       "Tối thiểu 4 người chơi/ phòng",
