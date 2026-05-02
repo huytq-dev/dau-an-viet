@@ -1,7 +1,11 @@
+import { FEATURES } from '@/lib/features'
 import clientPromise from '@/lib/mongodb'
 import { NextResponse } from 'next/server'
 
 export async function GET() {
+  if (!FEATURES.EARLY_BIRD_VOUCHER) {
+    return NextResponse.json({ available: false })
+  }
   try {
     const client = await clientPromise
     const col = client.db('main').collection('vouchers')
@@ -23,6 +27,9 @@ export async function GET() {
 }
 
 export async function POST() {
+  if (!FEATURES.EARLY_BIRD_VOUCHER) {
+    return NextResponse.json({ success: false }, { status: 410 })
+  }
   try {
     const client = await clientPromise
     const col = client.db('main').collection('vouchers')
