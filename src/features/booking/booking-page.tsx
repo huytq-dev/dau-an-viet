@@ -30,7 +30,12 @@ export default function BookingPage() {
 
   const [ticketCount, setTicketCount] = useState(2)
   const [timeFilter, setTimeFilter] = useState('all')
-  const [currentMonth, setCurrentMonth] = useState(MIN_MONTH)
+  const [currentMonth, setCurrentMonth] = useState(() => {
+    const now = new Date(new Date().getFullYear(), new Date().getMonth(), 1)
+    if (now < MIN_MONTH) return MIN_MONTH
+    if (now > MAX_MONTH) return MAX_MONTH
+    return now
+  })
   const [selectedDate, setSelectedDate] = useState<string | null>(null)
   const [isPanelOpen, setIsPanelOpen] = useState(false)
 

@@ -7,6 +7,7 @@ import {
   CheckCircle,
   ChevronLeft,
   Clock,
+  Gift,
   Home,
   Mail,
   MapPin,
@@ -77,6 +78,7 @@ export default function CheckoutPage() {
   const [emailSending, setEmailSending] = useState(false)
   const [showSuccessModal, setShowSuccessModal] = useState(false)
   const [successStep, setSuccessStep] = useState<1 | 2>(1)
+  const [voucher, setVoucher] = useState<{ code: string; discountPercent: number } | null>(null)
   const formRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -85,6 +87,19 @@ export default function CheckoutPage() {
     if (cartData) setCart(JSON.parse(cartData))
     if (metaData) setMeta(JSON.parse(metaData))
   }, [])
+
+  useEffect(() => {
+    fetch('/api/voucher')
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.available) setVoucher({ code: data.code, discountPercent: data.discountPercent })
+      })
+      .catch(() => {})
+  }, [])
+
+  const discountedTotal = meta && voucher
+    ? Math.round(meta.totalPrice * (1 - voucher.discountPercent / 100))
+    : meta?.totalPrice ?? 0
 
   const cartByTeam = cart.reduce(
     (map, item) => {
@@ -115,6 +130,18 @@ export default function CheckoutPage() {
     setPaymentConfirmed(true)
     setEmailSending(true)
     try {
+      let finalDiscount = voucher
+      if (voucher) {
+        const claimRes = await fetch('/api/voucher', { method: 'POST' })
+        if (!claimRes.ok) finalDiscount = null
+      }
+
+      const finalTotal = meta
+        ? finalDiscount
+          ? Math.round(meta.totalPrice * (1 - finalDiscount.discountPercent / 100))
+          : meta.totalPrice
+        : 0
+
       await fetch('/api/send-booking-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -126,7 +153,9 @@ export default function CheckoutPage() {
           date: meta ? formatDateDisplay(meta.date) : '',
           time: meta?.time ?? '',
           ticketCount: cart.length,
-          totalPrice: meta ? formatPrice(meta.totalPrice) : '',
+          totalPrice: formatPrice(finalTotal),
+          voucherCode: finalDiscount?.code,
+          discountPercent: finalDiscount?.discountPercent,
         }),
       })
     } catch (e) {
@@ -182,9 +211,16 @@ export default function CheckoutPage() {
             {meta.roomName} · {meta.time}
           </span>
           <span className="text-sm text-gray-600">{formatDateDisplay(meta.date)}</span>
-          <span className="text-sm font-black text-[#991b1b] ml-auto">
-            {formatPrice(meta.totalPrice)}
-          </span>
+          <div className="ml-auto text-right">
+            {voucher && (
+              <span className="text-xs text-gray-400 line-through block">
+                {formatPrice(meta.totalPrice)}
+              </span>
+            )}
+            <span className="text-sm font-black text-[#991b1b]">
+              {formatPrice(discountedTotal)}
+            </span>
+          </div>
         </div>
 
         {/* Main layout */}
@@ -279,9 +315,14 @@ export default function CheckoutPage() {
                 {/* Total */}
                 <div className="mt-4 pt-3 border-t border-gray-200 flex justify-between items-center">
                   <span className="text-sm font-semibold text-gray-600">Tổng cộng</span>
-                  <span className="text-lg font-black text-[#991b1b]">
-                    {formatPrice(meta.totalPrice)}
-                  </span>
+                  <div className="text-right">
+                    {voucher && (
+                      <p className="text-xs text-gray-400 line-through">{formatPrice(meta.totalPrice)}</p>
+                    )}
+                    <span className="text-lg font-black text-[#991b1b]">
+                      {formatPrice(discountedTotal)}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -386,12 +427,37 @@ export default function CheckoutPage() {
                     </div>
                     <div className="bg-rose-50 rounded-xl p-3">
                       <p className="text-xs text-rose-400 mb-1">Thành giá</p>
+                      {voucher && (
+                        <p className="text-xs text-gray-400 line-through">{formatPrice(meta.totalPrice)}</p>
+                      )}
                       <p className="font-black text-[#991b1b] text-xl">
-                        {formatPrice(meta.totalPrice)}
+                        {formatPrice(discountedTotal)}
                       </p>
                     </div>
                   </div>
                 </div>
+
+                {/* Voucher Banner */}
+                {voucher && (
+                  <div className="rounded-2xl bg-gradient-to-r from-amber-50 to-yellow-50 border border-amber-200 p-4 flex items-start gap-3">
+                    <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center shrink-0">
+                      <Gift className="w-5 h-5 text-amber-600" />
+                    </div>
+                    <div>
+                      <p className="font-bold text-amber-800 text-sm leading-snug">
+                        🎉 Chúc mừng bạn thuộc top 100 người đặt vé đầu tiên!
+                      </p>
+                      <p className="text-amber-700 text-xs mt-1 leading-relaxed">
+                        Bạn được tặng mã giảm giá{' '}
+                        <span className="font-black text-amber-800">{voucher.discountPercent}%</span>{' '}
+                        cho lần đặt này. Đã áp dụng vào hoá đơn.
+                      </p>
+                      <p className="text-amber-600 text-xs mt-1 font-mono font-semibold">
+                        Mã: {voucher.code}
+                      </p>
+                    </div>
+                  </div>
+                )}
 
                 {/* CTA */}
                 <button
@@ -465,9 +531,14 @@ export default function CheckoutPage() {
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-gray-100">
                       <span className="text-gray-500">Số tiền</span>
-                      <span className="font-black text-[#991b1b]">
-                        {formatPrice(meta.totalPrice)}
-                      </span>
+                      <div className="text-right">
+                        {voucher && (
+                          <p className="text-xs text-gray-400 line-through">{formatPrice(meta.totalPrice)}</p>
+                        )}
+                        <span className="font-black text-[#991b1b]">
+                          {formatPrice(discountedTotal)}
+                        </span>
+                      </div>
                     </div>
                     <div className="flex justify-between items-center py-2">
                       <span className="text-gray-500">Nội dung</span>
@@ -556,11 +627,30 @@ export default function CheckoutPage() {
                 </div>
                 <div className="bg-gray-50 rounded-xl p-3">
                   <p className="text-xs text-gray-400 mb-0.5">Thành giá</p>
+                  {voucher && (
+                    <p className="text-xs text-gray-400 line-through">{formatPrice(meta.totalPrice)}</p>
+                  )}
                   <p className="font-black text-[#991b1b] text-lg">
-                    {formatPrice(meta.totalPrice)}
+                    {formatPrice(discountedTotal)}
                   </p>
                 </div>
               </div>
+
+              {/* Voucher Banner (mobile) */}
+              {voucher && (
+                <div className="rounded-xl bg-amber-50 border border-amber-200 p-3 flex items-start gap-2.5">
+                  <Gift className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-bold text-amber-800 text-xs leading-snug">
+                      🎉 Chúc mừng bạn thuộc top 100 người đặt vé đầu tiên!
+                    </p>
+                    <p className="text-amber-700 text-xs mt-0.5">
+                      Giảm <strong>{voucher.discountPercent}%</strong> · Đã áp dụng vào hoá đơn.
+                    </p>
+                  </div>
+                </div>
+              )}
+
               <button
                 onClick={handleSubmit}
                 className="w-full py-4 bg-[#991b1b] text-white font-black rounded-2xl text-sm transition-colors cursor-pointer"
@@ -601,7 +691,12 @@ export default function CheckoutPage() {
                 </div>
                 <div className="flex justify-between py-2">
                   <span className="text-gray-500">Số tiền</span>
-                  <span className="font-black text-[#991b1b]">{formatPrice(meta.totalPrice)}</span>
+                  <div className="text-right">
+                    {voucher && (
+                      <p className="text-xs text-gray-400 line-through">{formatPrice(meta.totalPrice)}</p>
+                    )}
+                    <span className="font-black text-[#991b1b]">{formatPrice(discountedTotal)}</span>
+                  </div>
                 </div>
               </div>
               {!paymentConfirmed && (
