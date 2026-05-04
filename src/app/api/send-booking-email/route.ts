@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
+import path from 'path'
 
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
@@ -18,8 +19,11 @@ export async function POST(req: NextRequest) {
     const html = `
 <!DOCTYPE html>
 <html lang="vi">
-<head><meta charset="UTF-8" /></head>
-<body style="margin:0;padding:0;background:#f5f5f5;font-family:Arial,sans-serif;">
+<head>
+  <meta charset="UTF-8" />
+  <style>@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800;900&display=swap');</style>
+</head>
+<body style="margin:0;padding:0;background:#f5f5f5;font-family:'Be Vietnam Pro','Segoe UI',Tahoma,Verdana,sans-serif;">
   <table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f5f5;padding:32px 0;">
     <tr><td align="center">
       <table width="560" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
@@ -60,10 +64,34 @@ export async function POST(req: NextRequest) {
 
         <!-- Address -->
         <tr>
-          <td style="padding:0 32px 28px;">
+          <td style="padding:0 32px 20px;">
             <div style="background:#fef9f0;border-left:3px solid #991b1b;border-radius:0 8px 8px 0;padding:14px 16px;">
               <p style="margin:0 0 4px;font-size:11px;font-weight:700;color:#991b1b;text-transform:uppercase;letter-spacing:1px;">Cơ sở</p>
               <p style="margin:0;font-size:13px;color:#444;line-height:1.6;">Lô 16-B1.2, Khu số 4 – KĐT Nam Cầu Tiên Sơn, Anh Thơ, Phường Khuê Mỹ, Quận Ngũ Hành Sơn, Đà Nẵng</p>
+            </div>
+          </td>
+        </tr>
+
+        <!-- Check-in notice -->
+        <tr>
+          <td style="padding:0 32px 20px;">
+            <div style="background:#fffbeb;border:1px solid #fcd34d;border-radius:8px;padding:14px 16px;">
+              <p style="margin:0 0 6px;font-size:12px;font-weight:700;color:#92400e;text-transform:uppercase;letter-spacing:0.5px;">⏰ Lưu ý check-in</p>
+              <p style="margin:0;font-size:13px;color:#444;line-height:1.7;">
+                Team mình vui lòng có mặt <strong>trước 10–15 phút</strong> so với giờ chơi để hoàn tất thủ tục check-in nhé.<br/>
+                <span style="color:#991b1b;font-style:italic;">(Nếu team đến trễ so với thời gian quy định sẽ bị trừ thời gian chơi.)</span>
+              </p>
+            </div>
+          </td>
+        </tr>
+
+        <!-- QR code rules -->
+        <tr>
+          <td style="padding:0 32px 28px;text-align:center;">
+            <div style="background:#f8f8f8;border-radius:8px;padding:20px 16px;">
+              <p style="margin:0 0 4px;font-size:12px;font-weight:700;color:#991b1b;text-transform:uppercase;letter-spacing:0.5px;">Luật chơi</p>
+              <p style="margin:0 0 14px;font-size:13px;color:#555;line-height:1.6;">Vui lòng quét mã QR đính kèm để xem trước luật chơi và nắm rõ cách tham gia trước khi trải nghiệm.</p>
+              <img src="cid:qr_luat_choi" alt="QR luật chơi" width="160" height="160" style="display:block;margin:0 auto;border-radius:8px;" />
             </div>
           </td>
         </tr>
@@ -85,11 +113,20 @@ export async function POST(req: NextRequest) {
 </html>
 `
 
+    const qrPath = path.join(process.cwd(), 'public', 'images', 'qr_luat_choi.jpg')
+
     await transporter.sendMail({
       from: `"Dấu Chân Việt" <hyperrhy1412@gmail.com>`,
       to: email,
       subject: `[Dấu Chân Việt] Xác nhận đặt phòng – ${roomName}`,
       html,
+      attachments: [
+        {
+          filename: 'qr_luat_choi.jpg',
+          path: qrPath,
+          cid: 'qr_luat_choi',
+        },
+      ],
     })
 
     return NextResponse.json({ success: true })
